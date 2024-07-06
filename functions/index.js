@@ -1,19 +1,42 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+
+admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+});
+
+const firestore = admin.firestore();
+
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+const runtimeOptions = {
+    timeoutSeconds: 512,
+}
 
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+exports.extractBrands = functions.runWith(runtimeOptions).https.onRequest((req, res) => {
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+    var numberOfPage = req.query.numberOfPage;
+
+    if (numberOfPage == null) {
+        numberOfPage = 1;
+    }
+
+    var allCategories = 'https://geeksempire.co/wp-json/wc/v3/products/categories?consumer_key=ck_e469d717bd778da4fb9ec24881ee589d9b202662&consumer_secret=cs_ac53c1b36d1a85e36a362855d83af93f0d377686'
+        + '&page=' + numberOfPage
+        + '&per_page=100';
+
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('GET', allCategories, true);
+    xmlHttpRequest.setRequestHeader('accept', 'application/json');
+    xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
+    xmlHttpRequest.onload = function () {
+
+        var jsonArrayParserResponse = JSON.parse(xmlHttpRequest.responseText);
+
+    };
+    xmlHttpRequest.send();
+
+});
