@@ -6,15 +6,15 @@ admin.initializeApp({
 });
 
 const firestore = admin.firestore();
+const FieldValue = require('firebase-admin').firestore.FieldValue;
 
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const XMLHttpRequest = require("xhr2").XMLHttpRequest;
 
 const runtimeOptions = {
     timeoutSeconds: 512,
 }
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+firestore.settings({ ignoreUndefinedProperties: true });
 
 exports.extractBrands = functions.runWith(runtimeOptions).https.onRequest((req, res) => {
 
@@ -35,6 +35,7 @@ exports.extractBrands = functions.runWith(runtimeOptions).https.onRequest((req, 
     xmlHttpRequest.onload = function () {
 
         var jsonArrayParserResponse = JSON.parse(xmlHttpRequest.responseText);
+        console.log(jsonArrayParserResponse);
 
     };
     xmlHttpRequest.send();
