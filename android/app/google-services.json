@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826703621301",
+    "project_id": "cool-gadgets-for",
+    "storage_bucket": "cool-gadgets-for.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826703621301:android:0ab4530cc3d40e33fe22fc",
+        "android_client_info": {
+          "package_name": "co.geeksempire.coolgadgetsfor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0OST6T9UhFXnjy_8IOekGAygjh_FCo6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
