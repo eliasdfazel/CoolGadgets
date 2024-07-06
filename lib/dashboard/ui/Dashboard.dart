@@ -99,12 +99,39 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               /*
                * Start - Content
                */
-
+              prepareContent(),
               /*
                * End - Content
                */
 
             ]
+        )
+    );
+  }
+
+  Widget prepareContent() {
+
+    return SlideTransition(
+        position: offsetAnimation,
+        child: ScaleTransition(
+            scale: scaleAnimation,
+            child: Stack(
+                children: [
+
+                  /* Start - Content */
+                  Categories(),
+                  /* End - Content */
+
+                  /* Start - Header */
+                  Header(dashboardState: this),
+                  /* End - Header */
+
+                  /* Start - Search */
+                  Search(),
+                  /* End - Search */
+
+                ]
+            )
         )
     );
   }
