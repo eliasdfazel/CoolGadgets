@@ -88,6 +88,8 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         body: Stack(
             children: [
 
+
+
               /*
                * Start - Menu
                */
@@ -119,6 +121,16 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
             scale: scaleAnimation,
             child: Stack(
                 children: [
+
+                  Opacity(
+                      opacity: 0.73,
+                      child: Image.asset(
+                        'images/elements.png',
+                        height: double.maxFinite,
+                        width: double.maxFinite,
+                        fit: BoxFit.cover,
+                      )
+                  ),
 
                   /* Start - Content */
                   // Categories(),
