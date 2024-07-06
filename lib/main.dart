@@ -1,4 +1,5 @@
 import 'package:cool_gadgets/dashboard/ui/Dashboard.dart';
+import 'package:cool_gadgets/firebase_options.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
