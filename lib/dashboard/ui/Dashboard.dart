@@ -1,5 +1,7 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/header.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/menus.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/search.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/utils/calculations/display.dart';
 import 'package:cool_gadgets/utils/calculations/numbers.dart';
@@ -123,11 +125,11 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   /* End - Content */
 
                   /* Start - Header */
-                  // Header(dashboardState: this),
+                  Header(dashboardState: this),
                   /* End - Header */
 
                   /* Start - Search */
-                  // Search(),
+                  const Search(),
                   /* End - Search */
 
                 ]

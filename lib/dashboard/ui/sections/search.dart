@@ -1,18 +1,15 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/ui/Dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-class Header extends StatefulWidget {
+class Search extends StatefulWidget {
 
-  DashboardState dashboardState;
-
-  Header({Key? key, required this.dashboardState}) : super(key: key);
+  const Search({Key? key}) : super(key: key);
 
   @override
-  State<Header> createState() => HeaderState();
+  State<Search> createState() => SearchState();
 }
-class HeaderState extends State<Header> {
+class SearchState extends State<Search> {
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
