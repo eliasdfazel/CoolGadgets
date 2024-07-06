@@ -1,5 +1,8 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/menus.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:cool_gadgets/utils/calculations/display.dart';
+import 'package:cool_gadgets/utils/calculations/numbers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -86,7 +89,7 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               /*
                * Start - Menu
                */
-
+              prepareMenu(),
               /*
                * End - Menu
                */
@@ -106,6 +109,21 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
     );
   }
 
+  Widget prepareMenu() {
 
+    return Container(
+        width: calculatePercentage(53, displayLogicalWidth(context)),
+        alignment: AlignmentDirectional.centerStart,
+        color: Colors.black,
+        child: SlideTransition(
+            position: offsetAnimationItems,
+            child: AnimatedOpacity(
+                opacity: opacityAnimation,
+                duration: Duration(milliseconds: menuOpen ? 753 : 137),
+                child: const Menus()
+            )
+        )
+    );
+  }
 
 }
