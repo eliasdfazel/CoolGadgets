@@ -2,6 +2,11 @@ import 'package:cool_gadgets/resources/private/Privates.dart';
 
 class Endpoints {
 
+  String brandsCollection() {
+
+    return '/CoolGadgets/Products/Brands';
+  }
+
   String searchEndpoint(String searchQuery) {
 
     return 'https://GeeksEmpire.co/search/?searchQuery=$searchQuery';

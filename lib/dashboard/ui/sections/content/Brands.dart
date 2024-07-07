@@ -1,4 +1,7 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_gadgets/dashboard/data/BrandsDataStructure.dart';
+import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
 import 'package:cool_gadgets/utils/calculations/display.dart';
@@ -15,6 +18,8 @@ class Brands extends StatefulWidget {
   State<Brands> createState() => BrandsState();
 }
 class BrandsState extends State<Brands> {
+
+  Endpoints endpoints = Endpoints();
 
   Widget brandsPlaceholder = Container();
 
@@ -178,13 +183,61 @@ class BrandsState extends State<Brands> {
             physics: const RangeMaintainingScrollPhysics(),
             children: previewItems
         )
-    );;
+    );
   }
 
   Future retrieveBrands() async {
 
+    List<Widget> allBrands = [];
 
+    FirebaseFirestore.instance.collection(endpoints.brandsCollection())
+        .get().then((querySnapshot) {
 
+          for (var element in querySnapshot.docs) {
+
+            allBrands.add(brandItem(BrandsDataStructure(element)));
+
+          }
+
+          setState(() {
+
+            brandsPlaceholder = DynMouseScroll(
+                durationMS: 555,
+                scrollSpeed: 5.5,
+                animationCurve: Curves.easeInOut,
+                builder: (context, controller, physics) => ListView(
+                    controller: scrollController,
+                    padding: const EdgeInsets.symmetric(horizontal: 13),
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    physics: const RangeMaintainingScrollPhysics(),
+                    children: allBrands
+                )
+            );
+
+          });
+
+        });
+
+  }
+
+  Widget brandItem(BrandsDataStructure brandsDataStructure) {
+
+    return Align(
+        alignment: Alignment.center,
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            child: SizedBox(
+                height: 51,
+                width: 51,
+                child: Image.network(
+                    brandsDataStructure.brandImageValue(),
+                    height: 51,
+                    width: 51
+                )
+            )
+        )
+    );
   }
 
 }
