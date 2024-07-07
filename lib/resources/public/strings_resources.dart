@@ -32,7 +32,7 @@ class StringsResources {
 
   static String titleArwenAi() {
 
-    return "Powered By Arwen AI";
+    return "By Arwen AI";
   }
 
   static String nothingFound() {

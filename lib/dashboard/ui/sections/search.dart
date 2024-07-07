@@ -157,7 +157,8 @@ class SearchState extends State<Search> {
                                                           textAlign: TextAlign.center,
                                                           style: const TextStyle(
                                                               color: ColorsResources.premiumLight,
-                                                              fontSize: 7
+                                                              letterSpacing: 1.9,
+                                                              fontSize: 9
                                                           )
                                                       )
                                                   )
