@@ -5,6 +5,7 @@ import 'package:cool_gadgets/utils/calculations/display.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 
 class Brands extends StatefulWidget {
 
@@ -14,6 +15,10 @@ class Brands extends StatefulWidget {
   State<Brands> createState() => BrandsState();
 }
 class BrandsState extends State<Brands> {
+
+  Widget brandsPlaceholder = Container();
+
+  ScrollController scrollController = ScrollController();
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
@@ -27,6 +32,11 @@ class BrandsState extends State<Brands> {
     super.initState();
 
     BackButtonInterceptor.add(aInterceptor);
+
+    brandsPlaceholder = initialBrands();
+
+    retrieveBrands();
+
   }
 
   @override
@@ -86,9 +96,9 @@ class BrandsState extends State<Brands> {
             ),
 
             SizedBox(
-                height: 73,
+                height: 72,
                 child: Padding(
-                    padding: const EdgeInsets.only(top: -1),
+                    padding: const EdgeInsets.only(top: 0),
                     child: Container(
                         decoration: BoxDecoration(
                             border: const Border.symmetric(
@@ -103,18 +113,11 @@ class BrandsState extends State<Brands> {
                                     style: BorderStyle.solid
                                 )
                             ),
-                            borderRadius: BorderRadius.circular(11)
+                            borderRadius: BorderRadius.circular(19)
                         ),
                         child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
                             alignment: Alignment.centerLeft,
-                            child: Text(
-                              StringsResources.titleBrands(),
-                              style: const TextStyle(
-                                  color: ColorsResources.premiumLight,
-                                  fontSize: 13
-                              ),
-                            )
+                            child: brandsPlaceholder
                         )
                     )
                 )
@@ -124,6 +127,64 @@ class BrandsState extends State<Brands> {
         )
       )
     );
+  }
+
+  Widget initialBrands() {
+
+    List<Widget> previewItems = [];
+
+    List<Color> previewColors = [
+      ColorsResources.black,
+      ColorsResources.purple,
+      ColorsResources.orange,
+      ColorsResources.green,
+      ColorsResources.red,
+      ColorsResources.yellow,
+    ];
+
+    for(int i = 1; i < 6; i++) {
+
+      previewItems.add(Align(
+        alignment: Alignment.center,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 7),
+          child: SizedBox(
+            height: 51,
+            width: 51,
+            child: Opacity(
+              opacity: (0.73 - i/10),
+              child: Image.asset(
+                'images/squarcle.png',
+                height: 51,
+                width: 51,
+                color: previewColors[i],
+              )
+            )
+          )
+        )
+      ));
+
+    }
+
+    return DynMouseScroll(
+        durationMS: 555,
+        scrollSpeed: 5.5,
+        animationCurve: Curves.easeInOut,
+        builder: (context, controller, physics) => ListView(
+            controller: scrollController,
+            padding: const EdgeInsets.symmetric(horizontal: 13),
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            physics: const RangeMaintainingScrollPhysics(),
+            children: previewItems
+        )
+    );;
+  }
+
+  Future retrieveBrands() async {
+
+
+
   }
 
 }
