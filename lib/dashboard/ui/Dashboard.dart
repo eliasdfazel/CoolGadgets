@@ -1,8 +1,8 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/content.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/header.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/menus.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/search.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/Header.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/Menus.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/Search.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/content/Content.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/utils/calculations/display.dart';
 import 'package:cool_gadgets/utils/calculations/numbers.dart';

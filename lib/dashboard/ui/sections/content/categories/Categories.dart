@@ -1,16 +1,15 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/Brands.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Content extends StatefulWidget {
+class Categories extends StatefulWidget {
 
-  const Content({Key? key}) : super(key: key);
+  const Categories({Key? key}) : super(key: key);
 
   @override
-  State<Content> createState() => ContentState();
+  State<Categories> createState() => CategoriesState();
 }
-class ContentState extends State<Content> {
+class CategoriesState extends State<Categories> {
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
@@ -38,21 +37,11 @@ class ContentState extends State<Content> {
   Widget build(BuildContext context) {
 
     return Stack(
-      children: [
+        children: [
 
-        Opacity(
-            opacity: 1.0,
-            child: Image.asset(
-              'images/elements.png',
-              height: double.maxFinite,
-              width: double.maxFinite,
-              fit: BoxFit.cover,
-            )
-        ),
 
-        const Brands(),
 
-      ]
+        ]
     );
   }
 
