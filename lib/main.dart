@@ -22,10 +22,10 @@ void main() async {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: StringsResources.titleCoolGadgets(),
-      color: ColorsResources.premiumDark,
+      color: ColorsResources.black,
       theme: ThemeData(
         fontFamily: 'Ubuntu',
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorsResources.premiumDark),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorsResources.black),
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
           TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),

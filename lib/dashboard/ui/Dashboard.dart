@@ -1,4 +1,5 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/categories.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/header.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/menus.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/search.dart';
@@ -84,11 +85,9 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: ColorsResources.premiumDark,
+        backgroundColor: ColorsResources.black,
         body: Stack(
             children: [
-
-
 
               /*
                * Start - Menu
@@ -97,8 +96,6 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               /*
                * End - Menu
                */
-
-
 
               /*
                * Start - Content
@@ -122,18 +119,20 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
             child: Stack(
                 children: [
 
-                  Opacity(
-                      opacity: 0.73,
-                      child: Image.asset(
-                        'images/elements.png',
-                        height: double.maxFinite,
-                        width: double.maxFinite,
-                        fit: BoxFit.cover,
-                      )
-                  ),
-
                   /* Start - Content */
-                  // Categories(),
+                  AnimatedContainer(
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.fastOutSlowIn,
+                      decoration: BoxDecoration(
+                          color: ColorsResources.premiumDark,
+                          borderRadius: radiusAnimation,
+                          border: Border.all(
+                              color: Colors.transparent,
+                              width: 0
+                          )
+                      ),
+                      child: const Categories()
+                  ),
                   /* End - Content */
 
                   /* Start - Header */
