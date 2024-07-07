@@ -12,6 +12,11 @@ class Endpoints {
     return 'https://GeeksEmpire.co/search/?searchQuery=$searchQuery';
   }
 
+  String brandsEndpoint(String brandName) {
+
+    return 'https://GeeksEmpire.co/products/editors-choices/brands/$brandName';
+  }
+
   String productsByCategory(String categoryId, String numberOfPage) {
 
     return 'https://geeksempire.co/wp-json/wc/v3/products?consumer_key=${Privates.woocommerceKey}&consumer_secret=${Privates.woocommerceSecret}'

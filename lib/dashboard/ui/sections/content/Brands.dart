@@ -5,10 +5,10 @@ import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
 import 'package:cool_gadgets/utils/calculations/display.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Brands extends StatefulWidget {
 
@@ -227,14 +227,21 @@ class BrandsState extends State<Brands> {
         alignment: Alignment.center,
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 7),
-            child: SizedBox(
-                height: 51,
-                width: 51,
-                child: Image.network(
-                    brandsDataStructure.brandImageValue(),
-                    height: 51,
-                    width: 51
-                )
+            child: InkWell(
+              onTap: () async {
+                
+                launchUrl(Uri.parse(endpoints.brandsEndpoint(brandsDataStructure.brandNameValue().replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
+                
+              },
+              child: SizedBox(
+                  height: 51,
+                  width: 51,
+                  child: Image.network(
+                      brandsDataStructure.brandImageValue(),
+                      height: 51,
+                      width: 51
+                  )
+              )
             )
         )
     );
