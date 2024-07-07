@@ -50,7 +50,7 @@ class ContentState extends State<Content> {
             )
         ),
 
-        Brands(),
+        const Brands(),
 
       ]
     );

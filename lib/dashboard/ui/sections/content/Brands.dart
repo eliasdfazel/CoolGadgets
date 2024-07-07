@@ -83,6 +83,41 @@ class BrandsState extends State<Brands> {
                   )
                 )
               )
+            ),
+
+            SizedBox(
+                height: 73,
+                child: Padding(
+                    padding: const EdgeInsets.only(top: -1),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            border: const Border.symmetric(
+                                vertical: BorderSide(
+                                    color: ColorsResources.premiumLight,
+                                    width: 5,
+                                    style: BorderStyle.solid
+                                ),
+                                horizontal: BorderSide(
+                                    color: ColorsResources.premiumLight,
+                                    width: 1,
+                                    style: BorderStyle.solid
+                                )
+                            ),
+                            borderRadius: BorderRadius.circular(11)
+                        ),
+                        child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              StringsResources.titleBrands(),
+                              style: const TextStyle(
+                                  color: ColorsResources.premiumLight,
+                                  fontSize: 13
+                              ),
+                            )
+                        )
+                    )
+                )
             )
 
           ]
