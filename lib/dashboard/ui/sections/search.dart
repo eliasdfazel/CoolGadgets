@@ -1,9 +1,11 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:blur/blur.dart';
+import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Search extends StatefulWidget {
 
@@ -13,6 +15,8 @@ class Search extends StatefulWidget {
   State<Search> createState() => SearchState();
 }
 class SearchState extends State<Search> {
+
+  Endpoints endpoints = Endpoints();
 
   TextEditingController searchController = TextEditingController();
 
@@ -70,7 +74,9 @@ class SearchState extends State<Search> {
                                           searchProcess(searchQuery);
 
                                         },
-                                        cursorColor: ColorsResources.premiumDark,
+                                        cursorColor: ColorsResources.dark.withOpacity(0.51),
+                                        cursorWidth: 3,
+                                        cursorRadius: const Radius.circular(99),
                                         decoration: InputDecoration(
                                             hintText: StringsResources.hintSearch(),
                                             hintStyle: TextStyle(
@@ -124,7 +130,7 @@ class SearchState extends State<Search> {
                                         shadowColor: Colors.transparent,
                                         color: Colors.transparent,
                                         child: InkWell(
-                                            splashColor: ColorsResources.premiumLight.withOpacity(0.37),
+                                            splashColor: ColorsResources.dark,
                                             splashFactory: InkRipple.splashFactory,
                                             onTap: () async {
 
@@ -185,7 +191,7 @@ class SearchState extends State<Search> {
 
   void searchProcess(String searchQuery) async {
 
-
+    launchUrl(Uri.parse(endpoints.searchEndpoint(searchQuery)), mode: LaunchMode.externalApplication);
 
   }
 
