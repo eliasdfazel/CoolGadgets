@@ -103,7 +103,7 @@ class SearchState extends State<Search> {
 
                           SizedBox(
                               height: 73,
-                              width: 137,
+                              width: 119,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: ColorsResources.premiumDark.withOpacity(0.73),
