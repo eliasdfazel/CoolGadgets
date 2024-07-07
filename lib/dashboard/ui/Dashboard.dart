@@ -21,18 +21,35 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   /*
    * Start - Menu
    */
-  late AnimationController animationController;
+  late AnimationController menuAnimationController;
 
-  late Animation<Offset> offsetAnimation;
-  late Animation<double> scaleAnimation;
-  BorderRadius radiusAnimation = BorderRadius.circular(0);
+  late Animation<Offset> menuOffsetAnimation;
+  late Animation<double> menuScaleAnimation;
+  BorderRadius menuRadiusAnimation = BorderRadius.circular(0);
 
-  late Animation<Offset> offsetAnimationItems;
-  double opacityAnimation = 0.37;
+  late Animation<Offset> menuOffsetAnimationItems;
+  double menuOpacityAnimation = 0.37;
 
   bool menuOpen = false;
   /*
    * End - Menu
+   */
+
+  /*
+   * Start - Category
+   */
+  late AnimationController categoryAnimationController;
+
+  late Animation<Offset> categoryOffsetAnimation;
+  late Animation<double> categoryScaleAnimation;
+  BorderRadius categoryRadiusAnimation = BorderRadius.circular(0);
+
+  late Animation<Offset> categoryOffsetAnimationItems;
+  double categoryOpacityAnimation = 0.37;
+
+  bool categoryOpen = false;
+  /*
+   * End - Category
    */
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
@@ -48,27 +65,61 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
     BackButtonInterceptor.add(aInterceptor);
 
-    animationController = AnimationController(vsync: this,
+    /*
+     * Start - Menu
+     */
+    menuAnimationController = AnimationController(vsync: this,
         duration: const Duration(milliseconds: 777),
         reverseDuration: const Duration(milliseconds: 333),
         animationBehavior: AnimationBehavior.preserve);
 
-    offsetAnimation = Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.51, 0))
+    menuOffsetAnimation = Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.51, 0))
         .animate(CurvedAnimation(
-        parent: animationController,
+        parent: menuAnimationController,
         curve: Curves.easeIn
     ));
-    scaleAnimation = Tween<double>(begin: 1, end: 0.91)
+    menuScaleAnimation = Tween<double>(begin: 1, end: 0.91)
         .animate(CurvedAnimation(
-        parent: animationController,
+        parent: menuAnimationController,
         curve: Curves.easeOut
     ));
 
-    offsetAnimationItems = Tween<Offset>(begin: const Offset(-0.19, 0), end: const Offset(0, 0))
+    menuOffsetAnimationItems = Tween<Offset>(begin: const Offset(-0.19, 0), end: const Offset(0, 0))
         .animate(CurvedAnimation(
-        parent: animationController,
+        parent: menuAnimationController,
         curve: Curves.easeIn
     ));
+    /*
+     * End - Menu
+     */
+
+    /*
+     * Start - Category
+     */
+    categoryAnimationController = AnimationController(vsync: this,
+        duration: const Duration(milliseconds: 777),
+        reverseDuration: const Duration(milliseconds: 333),
+        animationBehavior: AnimationBehavior.preserve);
+
+    categoryOffsetAnimation = Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.51, 0))
+        .animate(CurvedAnimation(
+        parent: categoryAnimationController,
+        curve: Curves.easeIn
+    ));
+    categoryScaleAnimation = Tween<double>(begin: 1, end: 0.91)
+        .animate(CurvedAnimation(
+        parent: categoryAnimationController,
+        curve: Curves.easeOut
+    ));
+
+    categoryOffsetAnimationItems = Tween<Offset>(begin: const Offset(-0.19, 0), end: const Offset(0, 0))
+        .animate(CurvedAnimation(
+        parent: categoryAnimationController,
+        curve: Curves.easeIn
+    ));
+    /*
+     * End - Category
+     */
 
   }
 
@@ -98,6 +149,14 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                */
 
               /*
+               * Start - Category
+               */
+              prepareCategory(),
+              /*
+               * End - Category
+               */
+
+              /*
                * Start - Content
                */
               prepareContent(),
@@ -113,9 +172,9 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   Widget prepareContent() {
 
     return SlideTransition(
-        position: offsetAnimation,
+        position: menuOffsetAnimation,
         child: ScaleTransition(
-            scale: scaleAnimation,
+            scale: menuScaleAnimation,
             child: Stack(
                 children: [
 
@@ -125,7 +184,7 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                       curve: Curves.fastOutSlowIn,
                       decoration: BoxDecoration(
                           color: ColorsResources.premiumDark,
-                          borderRadius: radiusAnimation,
+                          borderRadius: menuRadiusAnimation,
                           border: Border.all(
                               color: Colors.transparent,
                               width: 0
@@ -156,9 +215,26 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         alignment: AlignmentDirectional.centerStart,
         color: Colors.black,
         child: SlideTransition(
-            position: offsetAnimationItems,
+            position: menuOffsetAnimationItems,
             child: AnimatedOpacity(
-                opacity: opacityAnimation,
+                opacity: menuOpacityAnimation,
+                duration: Duration(milliseconds: menuOpen ? 753 : 137),
+                child: const Menus()
+            )
+        )
+    );
+  }
+
+  Widget prepareCategory() {
+
+    return Container(
+        width: calculatePercentage(53, displayLogicalWidth(context)),
+        alignment: AlignmentDirectional.centerStart,
+        color: Colors.black,
+        child: SlideTransition(
+            position: categoryOffsetAnimationItems,
+            child: AnimatedOpacity(
+                opacity: categoryOpacityAnimation,
                 duration: Duration(milliseconds: menuOpen ? 753 : 137),
                 child: const Menus()
             )

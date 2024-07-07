@@ -74,15 +74,15 @@ class HeaderState extends State<Header> {
 
                                           widget.dashboardState.menuOpen = false;
 
-                                          widget.dashboardState.animationController.reverse().whenComplete(() {
+                                          widget.dashboardState.menuAnimationController.reverse().whenComplete(() {
 
                                           });
 
                                           widget.dashboardState.setState(() {
 
-                                            widget.dashboardState.opacityAnimation = 0.37;
+                                            widget.dashboardState.menuOpacityAnimation = 0.37;
 
-                                            widget.dashboardState.radiusAnimation = BorderRadius.circular(0);
+                                            widget.dashboardState.menuRadiusAnimation = BorderRadius.circular(0);
 
                                           });
 
@@ -91,15 +91,15 @@ class HeaderState extends State<Header> {
 
                                           widget.dashboardState.menuOpen = true;
 
-                                          widget.dashboardState.animationController.forward().whenComplete(() {
+                                          widget.dashboardState.menuAnimationController.forward().whenComplete(() {
 
                                           });
 
                                           widget.dashboardState.setState(() {
 
-                                            widget.dashboardState.opacityAnimation = 1;
+                                            widget.dashboardState.menuOpacityAnimation = 1;
 
-                                            widget.dashboardState.radiusAnimation = BorderRadius.circular(37);
+                                            widget.dashboardState.menuRadiusAnimation = BorderRadius.circular(37);
 
                                           });
 
@@ -135,6 +135,8 @@ class HeaderState extends State<Header> {
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 
+
+
                                         },
                                         child: Align(
                                           alignment: Alignment.center,
@@ -168,7 +170,40 @@ class HeaderState extends State<Header> {
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 
+                                          if (widget.dashboardState.categoryOpen) {
 
+                                            widget.dashboardState.categoryOpen = false;
+
+                                            widget.dashboardState.categoryAnimationController.reverse().whenComplete(() {
+
+                                            });
+
+                                            widget.dashboardState.setState(() {
+
+                                              widget.dashboardState.categoryOpacityAnimation = 0.37;
+
+                                              widget.dashboardState.categoryRadiusAnimation = BorderRadius.circular(0);
+
+                                            });
+
+                                          } else {
+
+
+                                            widget.dashboardState.categoryOpen = true;
+
+                                            widget.dashboardState.categoryAnimationController.forward().whenComplete(() {
+
+                                            });
+
+                                            widget.dashboardState.setState(() {
+
+                                              widget.dashboardState.categoryOpacityAnimation = 1;
+
+                                              widget.dashboardState.categoryRadiusAnimation = BorderRadius.circular(37);
+
+                                            });
+
+                                          }
 
                                         },
                                         child: Container(
