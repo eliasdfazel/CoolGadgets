@@ -66,7 +66,7 @@ class HeaderState extends State<Header> {
                                   shadowColor: Colors.transparent,
                                   color: Colors.transparent,
                                   child: InkWell(
-                                      splashColor: ColorsResources.premiumLight.withOpacity(0.37),
+                                      splashColor: ColorsResources.premiumLight.withOpacity(0.19),
                                       splashFactory: InkRipple.splashFactory,
                                       onTap: () {
 
@@ -74,7 +74,7 @@ class HeaderState extends State<Header> {
 
                                           widget.dashboardState.menuOpen = false;
 
-                                          widget.dashboardState.menuAnimationController.reverse().whenComplete(() {
+                                          widget.dashboardState.animationController.reverse().whenComplete(() {
 
                                           });
 
@@ -91,7 +91,7 @@ class HeaderState extends State<Header> {
 
                                           widget.dashboardState.menuOpen = true;
 
-                                          widget.dashboardState.menuAnimationController.forward().whenComplete(() {
+                                          widget.dashboardState.animationController.forward().whenComplete(() {
 
                                           });
 
@@ -166,44 +166,11 @@ class HeaderState extends State<Header> {
                                     shadowColor: Colors.transparent,
                                     color: Colors.transparent,
                                     child: InkWell(
-                                        splashColor: ColorsResources.premiumLight.withOpacity(0.37),
+                                        splashColor: ColorsResources.premiumLight.withOpacity(0.19),
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 
-                                          if (widget.dashboardState.categoryOpen) {
 
-                                            widget.dashboardState.categoryOpen = false;
-
-                                            widget.dashboardState.categoryAnimationController.reverse().whenComplete(() {
-
-                                            });
-
-                                            widget.dashboardState.setState(() {
-
-                                              widget.dashboardState.categoryOpacityAnimation = 0.37;
-
-                                              widget.dashboardState.categoryRadiusAnimation = BorderRadius.circular(0);
-
-                                            });
-
-                                          } else {
-
-
-                                            widget.dashboardState.categoryOpen = true;
-
-                                            widget.dashboardState.categoryAnimationController.forward().whenComplete(() {
-
-                                            });
-
-                                            widget.dashboardState.setState(() {
-
-                                              widget.dashboardState.categoryOpacityAnimation = 1;
-
-                                              widget.dashboardState.categoryRadiusAnimation = BorderRadius.circular(37);
-
-                                            });
-
-                                          }
 
                                         },
                                         child: Container(
