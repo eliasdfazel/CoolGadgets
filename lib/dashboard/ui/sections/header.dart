@@ -5,6 +5,7 @@ import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Header extends StatefulWidget {
 
@@ -170,7 +171,7 @@ class HeaderState extends State<Header> {
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 
-
+                                          launchUrl(Uri.parse('https://GeeksEmpire.co/Exclusive'), mode: LaunchMode.externalApplication);
 
                                         },
                                         child: Container(

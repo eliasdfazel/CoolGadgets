@@ -2,14 +2,14 @@ import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Categories extends StatefulWidget {
+class Content extends StatefulWidget {
 
-  const Categories({Key? key}) : super(key: key);
+  const Content({Key? key}) : super(key: key);
 
   @override
-  State<Categories> createState() => CategoriesState();
+  State<Content> createState() => ContentState();
 }
-class CategoriesState extends State<Categories> {
+class ContentState extends State<Content> {
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
