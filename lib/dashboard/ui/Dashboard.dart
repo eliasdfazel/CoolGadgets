@@ -150,11 +150,17 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   /* End - Content */
 
                   /* Start - Header */
-                  Header(dashboardState: this),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Header(dashboardState: this)
+                  ),
                   /* End - Header */
 
                   /* Start - Search */
-                  const Search(),
+                  const Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Search(),
+                  )
                   /* End - Search */
 
                 ]

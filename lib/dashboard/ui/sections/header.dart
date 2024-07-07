@@ -49,7 +49,7 @@ class HeaderState extends State<Header> {
           child: Blur(
               blur: 7,
               blurColor: ColorsResources.premiumDark,
-              colorOpacity: 0.51,
+              colorOpacity: 0.19,
               borderRadius: BorderRadius.circular(19),
               overlay: SizedBox(
                   height: 73,
@@ -66,7 +66,7 @@ class HeaderState extends State<Header> {
                                   shadowColor: Colors.transparent,
                                   color: Colors.transparent,
                                   child: InkWell(
-                                      splashColor: ColorsResources.premiumLight.withOpacity(0.19),
+                                      splashColor: ColorsResources.dark,
                                       splashFactory: InkRipple.splashFactory,
                                       onTap: () {
 
@@ -131,7 +131,7 @@ class HeaderState extends State<Header> {
                                     shadowColor: Colors.transparent,
                                     color: Colors.transparent,
                                     child: InkWell(
-                                        splashColor: ColorsResources.premiumLight.withOpacity(0.37),
+                                        splashColor: ColorsResources.dark,
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 
@@ -166,7 +166,7 @@ class HeaderState extends State<Header> {
                                     shadowColor: Colors.transparent,
                                     color: Colors.transparent,
                                     child: InkWell(
-                                        splashColor: ColorsResources.premiumLight.withOpacity(0.19),
+                                        splashColor: ColorsResources.dark,
                                         splashFactory: InkRipple.splashFactory,
                                         onTap: () {
 

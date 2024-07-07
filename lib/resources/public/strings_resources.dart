@@ -20,6 +20,21 @@ class StringsResources {
     return "Cool Gadgets for";
   }
 
+  static String titleSearch() {
+
+    return "Search";
+  }
+
+  static String hintSearch() {
+
+    return "Type To Search...";
+  }
+
+  static String titleArwenAi() {
+
+    return "Powered By Arwen AI";
+  }
+
   static String nothingFound() {
 
     return "Nothing Found";

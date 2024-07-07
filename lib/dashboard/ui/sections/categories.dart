@@ -40,7 +40,7 @@ class CategoriesState extends State<Categories> {
       children: [
 
         Opacity(
-            opacity: 0.51,
+            opacity: 1.0,
             child: Image.asset(
               'images/elements.png',
               height: double.maxFinite,
