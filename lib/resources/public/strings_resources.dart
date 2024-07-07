@@ -20,6 +20,11 @@ class StringsResources {
     return "Cool Gadgets for";
   }
 
+  static String titleBrands() {
+
+    return "Brands";
+  }
+
   static String titleSearch() {
 
     return "Search";
