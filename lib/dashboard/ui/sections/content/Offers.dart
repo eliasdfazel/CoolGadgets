@@ -56,13 +56,14 @@ class OffersState extends State<Offers> {
   Widget build(BuildContext context) {
 
     return Container(
+        height: 146,
+        alignment: Alignment.center,
         padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
-        constraints: const BoxConstraints(minHeight: 146, maxWidth: 1024),
-        child: SizedBox(
-            height: 146,
+        child: Container(
+            constraints: const BoxConstraints(minHeight: 146, maxWidth: 1024),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(13),
-              child: brandsPlaceholder
+                borderRadius: BorderRadius.circular(13),
+                child: brandsPlaceholder
             )
         )
     );
@@ -91,7 +92,6 @@ class OffersState extends State<Offers> {
                 controller: scrollController,
                 padding: const EdgeInsets.symmetric(horizontal: 13),
                 scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
                 physics: const RangeMaintainingScrollPhysics(),
                 children: allOffers
             )

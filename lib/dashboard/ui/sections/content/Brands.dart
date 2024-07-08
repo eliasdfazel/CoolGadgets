@@ -56,8 +56,8 @@ class BrandsState extends State<Brands> {
   Widget build(BuildContext context) {
 
     return Container(
+      alignment: Alignment.center,
       padding: const EdgeInsets.only(top: 173, left: 37, right: 37),
-      constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
       child: SizedBox(
         height: 108,
         child: Column(
@@ -65,9 +65,10 @@ class BrandsState extends State<Brands> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            SizedBox(
+            Container(
               height: 29,
               width: displayLogicalWidth(context) / 2,
+                constraints: const BoxConstraints(minHeight: 29, maxWidth: 313),
               child: Padding(
                 padding: const EdgeInsets.only(left: 17),
                 child: Container(
@@ -106,6 +107,7 @@ class BrandsState extends State<Brands> {
                 child: Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: Container(
+                        constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
                         decoration: BoxDecoration(
                             border: const Border.symmetric(
                                 vertical: BorderSide(
@@ -121,7 +123,7 @@ class BrandsState extends State<Brands> {
                             ),
                             borderRadius: BorderRadius.circular(19)
                         ),
-                        child: Container(
+                        child: Align(
                             alignment: Alignment.centerLeft,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(19),
