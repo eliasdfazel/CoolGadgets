@@ -105,7 +105,7 @@ class CategoryItemState extends State<CategoryItem> {
                         ),
 
                         Padding(
-                            padding: const EdgeInsets.only(top: 7, left: 19, right: 19),
+                            padding: const EdgeInsets.only(top: 13, left: 19, right: 19),
                             child: SizedBox(
                               height: 37,
                               child: ClipRRect(
@@ -194,21 +194,21 @@ class CategoryItemState extends State<CategoryItem> {
   Widget productsItem(ProductDataStructure productDataStructure) {
 
     return Container(
-      padding: const EdgeInsets.only(right: 19, top: 19),
+      padding: const EdgeInsets.only(top: 19, bottom: 13, right: 19),
       alignment: Alignment.center,
       child: InkWell(
-        onTap: () async {
+          onTap: () async {
 
-          launchUrl(Uri.parse(productDataStructure.productExternalLink()), mode: LaunchMode.externalApplication);
+            launchUrl(Uri.parse(productDataStructure.productExternalLink()), mode: LaunchMode.externalApplication);
 
-        },
-        child: ShapedImage(
-          imageTye: ImageType.NETWORK,
-          path: productDataStructure.productImage(),
-          shape: Shape.Rectarcle,
-          height: double.infinity,
-          boxFit: BoxFit.cover,
-        )
+          },
+          child: ShapedImage(
+            imageTye: ImageType.NETWORK,
+            path: productDataStructure.productImage(),
+            shape: Shape.Rectarcle,
+            height: double.infinity,
+            boxFit: BoxFit.cover,
+          )
       )
     );
   }
