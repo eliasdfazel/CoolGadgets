@@ -192,7 +192,11 @@ class SearchState extends State<Search> {
 
   void searchProcess(String searchQuery) async {
 
-    launchUrl(Uri.parse(endpoints.searchEndpoint(searchQuery)), mode: LaunchMode.externalApplication);
+    if (searchQuery.length >= 3) {
+
+      launchUrl(Uri.parse(endpoints.searchEndpoint(searchQuery)), mode: LaunchMode.externalApplication);
+
+    }
 
   }
 

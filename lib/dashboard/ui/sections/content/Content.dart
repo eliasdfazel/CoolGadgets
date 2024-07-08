@@ -1,5 +1,6 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/Brands.dart';
+import 'package:cool_gadgets/dashboard/ui/sections/content/Offers.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,9 +52,17 @@ class ContentState extends State<Content> {
             )
         ),
 
-        const Brands(),
+        ListView(
+          children: const [
 
-        const Categories(),
+            Brands(),
+
+            Offers(),
+
+            Categories(),
+
+          ]
+        )
 
       ]
     );

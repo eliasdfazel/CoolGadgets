@@ -55,10 +55,12 @@ class BrandsState extends State<Brands> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
+    return Container(
       padding: const EdgeInsets.only(top: 173, left: 37, right: 37),
+      constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
       child: SizedBox(
         height: 101,
+        width: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +124,10 @@ class BrandsState extends State<Brands> {
                         ),
                         child: Container(
                             alignment: Alignment.centerLeft,
-                            child: brandsPlaceholder
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(19),
+                              child: brandsPlaceholder
+                            )
                         )
                     )
                 )
@@ -152,7 +157,7 @@ class BrandsState extends State<Brands> {
       previewItems.add(Align(
         alignment: Alignment.center,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 7),
+          padding: const EdgeInsets.symmetric(horizontal: 11),
           child: SizedBox(
             height: 51,
             width: 51,
@@ -226,7 +231,7 @@ class BrandsState extends State<Brands> {
     return Align(
         alignment: Alignment.center,
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 7),
+            padding: const EdgeInsets.symmetric(horizontal: 11),
             child: InkWell(
               onTap: () async {
                 
