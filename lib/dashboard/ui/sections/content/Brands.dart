@@ -220,7 +220,7 @@ class BrandsState extends State<Brands> {
         .orderBy(BrandsDataStructure.categoryIndex, descending: true)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch.toString());
 
           for (var element in querySnapshot.docs) {
 

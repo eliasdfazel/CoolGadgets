@@ -97,7 +97,7 @@ class OffersState extends State<Offers> {
         .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
 
           for (var element in querySnapshot.docs) {
 

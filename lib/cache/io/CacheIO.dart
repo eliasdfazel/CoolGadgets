@@ -15,7 +15,7 @@ class CacheIO {
     sharedPreferences.then((value) async => {
 
       await value.setString(contentId, contentValue).then((value) => {
-        debugPrint("Cached Successfully: $contentValue")
+        debugPrint("$contentId Cached Successfully: $contentValue")
       })
 
     });

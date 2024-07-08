@@ -97,7 +97,7 @@ class CategoriesState extends State<Categories> {
         .orderBy(CategoriesDataStructure.categoryIndex)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store('CATEGORIES', DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('CATEGORIES', DateTime.now().microsecondsSinceEpoch.toString());
 
           prepareCategories(querySnapshot);
 
