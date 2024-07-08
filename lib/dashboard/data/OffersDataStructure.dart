@@ -6,6 +6,7 @@ class OffersDataStructure {
   static const String offerLink = "offerLink";
   static const String offerImage = "offerImage";
   static const String offerDescription = "offerDescription";
+  static const String offerIndex = "offerIndex";
 
   Map<String, dynamic> documentData = <String, dynamic>{};
 

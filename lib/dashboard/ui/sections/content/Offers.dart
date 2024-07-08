@@ -74,6 +74,7 @@ class OffersState extends State<Offers> {
     List<Widget> allOffers = [];
 
     FirebaseFirestore.instance.collection(endpoints.offersCollection())
+        .orderBy(OffersDataStructure.offerIndex)
         .get().then((querySnapshot) {
 
           for (var element in querySnapshot.docs) {
