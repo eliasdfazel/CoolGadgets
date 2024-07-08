@@ -59,7 +59,7 @@ class BrandsState extends State<Brands> {
       padding: const EdgeInsets.only(top: 173, left: 37, right: 37),
       constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
       child: SizedBox(
-        height: 101,
+        height: 108,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class BrandsState extends State<Brands> {
             ),
 
             SizedBox(
-                height: 72,
+                height: 79,
                 child: Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: Container(

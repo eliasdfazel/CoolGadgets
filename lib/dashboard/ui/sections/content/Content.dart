@@ -53,6 +53,8 @@ class ContentState extends State<Content> {
         ),
 
         ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
           children: const [
 
             Brands(),
