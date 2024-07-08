@@ -2,8 +2,10 @@ import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/Brands.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/Offers.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Categories.dart';
+import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 
 class Content extends StatefulWidget {
 
@@ -52,18 +54,35 @@ class ContentState extends State<Content> {
             )
         ),
 
-        ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: const [
+        DynMouseScroll(
+            durationMS: 555,
+            scrollSpeed: 5.5,
+            animationCurve: Curves.easeInOut,
+            builder: (context, controller, physics) => ListView(
+                padding: const EdgeInsets.only(top: 173, bottom: 13),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                physics: const RangeMaintainingScrollPhysics(),
+                children: const [
 
-            Brands(),
+                  Brands(),
 
-            Offers(),
+                  Divider(
+                    height: 37,
+                    color: ColorsResources.transparent,
+                  ),
 
-            Categories(),
+                  Offers(),
 
-          ]
+                  Divider(
+                    height: 37,
+                    color: ColorsResources.transparent,
+                  ),
+
+                  Categories(),
+
+                ]
+            )
         )
 
       ]

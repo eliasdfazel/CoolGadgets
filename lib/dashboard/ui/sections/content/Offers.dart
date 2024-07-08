@@ -58,7 +58,7 @@ class OffersState extends State<Offers> {
     return Container(
         height: 146,
         alignment: Alignment.center,
-        padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
+        padding: const EdgeInsets.only(left: 37, right: 37),
         child: Container(
             constraints: const BoxConstraints(minHeight: 146, maxWidth: 1024),
             child: ClipRRect(

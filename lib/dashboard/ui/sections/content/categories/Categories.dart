@@ -62,9 +62,8 @@ class CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
 
     return Container(
-        height: 146,
         alignment: Alignment.center,
-        padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
+        padding: const EdgeInsets.only(left: 37, right: 37),
         child: Container(
             constraints: const BoxConstraints(maxWidth: 1024),
             child: categoriesPlaceholder
@@ -74,39 +73,44 @@ class CategoriesState extends State<Categories> {
 
   void retrieveCategories() {
 
-    List<Widget> allCategories = [];
 
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
         .get().then((querySnapshot) {
 
-          for (var element in querySnapshot.docs) {
-
-            allCategories.add(CategoryItem(categoriesDataStructure: CategoriesDataStructure(element)));
-
-          }
-
-          setState(() {
-
-            int gridColumnCount = (displayLogicalWidth(context) / 356).round();
-
-            categoriesPlaceholder = GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: gridColumnCount,
-                  childAspectRatio: 1.39,
-                  crossAxisSpacing: 19.0,
-                  mainAxisSpacing: 19.0,
-                ),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                children: allCategories
-            );
-
-          });
+          prepareCategories(querySnapshot);
 
         });
 
+  }
 
+  void prepareCategories(QuerySnapshot querySnapshot) async {
+
+    List<Widget> allCategories = [];
+
+    for (var element in querySnapshot.docs) {
+
+      allCategories.add(CategoryItem(categoriesDataStructure: CategoriesDataStructure(element)));
+
+    }
+
+    setState(() {
+
+      int gridColumnCount = (displayLogicalWidth(context) / 356).round();
+
+      categoriesPlaceholder = GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: gridColumnCount,
+            childAspectRatio: 1.39,
+            crossAxisSpacing: 37.0,
+            mainAxisSpacing: 37.0,
+          ),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          children: allCategories
+      );
+
+    });
 
   }
 
