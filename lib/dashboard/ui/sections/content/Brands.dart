@@ -60,7 +60,6 @@ class BrandsState extends State<Brands> {
       constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
       child: SizedBox(
         height: 101,
-        width: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
