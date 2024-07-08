@@ -27,7 +27,7 @@ class CategoryItemState extends State<CategoryItem> {
   @override
   void initState() {
     super.initState();
-    debugPrint('${widget.categoriesDataStructure}');
+    debugPrint(widget.categoriesDataStructure.categoryNameValue());
 
     BackButtonInterceptor.add(aInterceptor);
 
@@ -51,7 +51,7 @@ class CategoryItemState extends State<CategoryItem> {
         borderRadius: BorderRadius.circular(19),
         child: Container(
           decoration: BoxDecoration(
-            color: widget.categoriesDataStructure.categoryColorValue()
+            color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.99)
           ),
         )
       )

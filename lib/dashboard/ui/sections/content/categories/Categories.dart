@@ -75,7 +75,7 @@ class CategoriesState extends State<Categories> {
 
 
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
-        .orderBy(CategoriesDataStructure.categoryIndex, descending: true)
+        .orderBy(CategoriesDataStructure.categoryIndex)
         .get().then((querySnapshot) {
 
           prepareCategories(querySnapshot);
