@@ -34,7 +34,8 @@ async function retrieveBrands(numberOfPage) {
 
     var allCategories = 'https://geeksempire.co/wp-json/wc/v3/products/categories?consumer_key=ck_e469d717bd778da4fb9ec24881ee589d9b202662&consumer_secret=cs_ac53c1b36d1a85e36a362855d83af93f0d377686'
     + '&page=' + numberOfPage
-    + '&per_page=100';
+    + '&per_page=100'
+    + '&orderby=count&order=desc';
 
     var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.open('GET', allCategories, true);
@@ -71,6 +72,8 @@ function setupBands(jsonObject) {
     const categoryName = jsonObject['name'].toString();
     const categoryDescription = jsonObject['description'].toString();
 
+    const categoryIndex = jsonObject['count'].toString();
+
     if (parentId == '6004' && jsonObject['image'] != null) {
         
         const categoryImage = jsonObject['image']['src'].toString();
@@ -84,7 +87,8 @@ function setupBands(jsonObject) {
             categoryId: categoryId,
             categoryName: categoryName,
             categoryDescription: categoryDescription,
-            categoryImage: categoryImage
+            categoryImage: categoryImage,
+            categoryIndex: categoryIndex
         }).then(result => { }).catch(error => { functions.logger.log(error); });
 
     }
@@ -109,7 +113,8 @@ async function retrieveCoolGadgets(numberOfPage) {
 
     var allCategories = 'https://geeksempire.co/wp-json/wc/v3/products/categories?consumer_key=ck_e469d717bd778da4fb9ec24881ee589d9b202662&consumer_secret=cs_ac53c1b36d1a85e36a362855d83af93f0d377686'
     + '&page=' + numberOfPage
-    + '&per_page=100';
+    + '&per_page=100'
+    + '&orderby=count&order=desc';
 
     var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.open('GET', allCategories, true);
@@ -146,6 +151,8 @@ async function setupCoolGadgets(jsonObject) {
     const categoryName = jsonObject['name'].toString();
     const categoryDescription = jsonObject['description'].toString();
 
+    const categoryIndex = jsonObject['count'].toString();
+
     if (parentId == '5563' && jsonObject['image'] != null) {
         
         const categoryImage = jsonObject['image']['src'].toString();
@@ -163,6 +170,7 @@ async function setupCoolGadgets(jsonObject) {
             categoryDescription: categoryDescription,
             categoryImage: categoryImage,
             categoryColor: dominantColor.toString(),
+            categoryIndex: categoryIndex
         }).then(result => { }).catch(error => { functions.logger.log(error); });
 
     }

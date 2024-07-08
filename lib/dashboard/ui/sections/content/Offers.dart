@@ -90,7 +90,6 @@ class OffersState extends State<Offers> {
                 animationCurve: Curves.easeInOut,
                 builder: (context, controller, physics) => ListView(
                     controller: scrollController,
-                    padding: const EdgeInsets.symmetric(horizontal: 13),
                     scrollDirection: Axis.horizontal,
                     physics: const RangeMaintainingScrollPhysics(),
                     children: allOffers

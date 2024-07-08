@@ -3,9 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/categories/CategoriesItem.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
-import 'package:cool_gadgets/utils/calculations/display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class Categories extends StatefulWidget {
 
@@ -75,6 +75,7 @@ class CategoriesState extends State<Categories> {
 
 
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
+        .orderBy(CategoriesDataStructure.categoryIndex, descending: true)
         .get().then((querySnapshot) {
 
           prepareCategories(querySnapshot);
@@ -95,7 +96,17 @@ class CategoriesState extends State<Categories> {
 
     setState(() {
 
-      int gridColumnCount = (displayLogicalWidth(context) / 356).round();
+      int gridColumnCount = 1;
+
+      if (GetPlatform.isDesktop) {
+
+        gridColumnCount = 2;
+
+      } else {
+
+        gridColumnCount = 1;
+
+      }
 
       categoriesPlaceholder = GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

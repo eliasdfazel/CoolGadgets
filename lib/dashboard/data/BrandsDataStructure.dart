@@ -6,6 +6,7 @@ class BrandsDataStructure {
   static const String brandName = "categoryName";
   static const String brandImage = "categoryImage";
   static const String brandDescription = "categoryDescription";
+  static const String categoryIndex = "categoryIndex";
 
   Map<String, dynamic> documentData = <String, dynamic>{};
 

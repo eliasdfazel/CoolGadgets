@@ -197,6 +197,7 @@ class BrandsState extends State<Brands> {
     List<Widget> allBrands = [];
 
     FirebaseFirestore.instance.collection(endpoints.brandsCollection())
+        .orderBy(BrandsDataStructure.categoryIndex, descending: true)
         .get().then((querySnapshot) {
 
           for (var element in querySnapshot.docs) {

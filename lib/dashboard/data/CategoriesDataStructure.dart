@@ -9,6 +9,7 @@ class CategoriesDataStructure {
   static const String categoryImage = "categoryImage";
   static const String categoryDescription = "categoryDescription";
   static const String categoryColor = "categoryColor";
+  static const String categoryIndex = "categoryIndex";
 
   Map<String, dynamic> documentData = <String, dynamic>{};
 
