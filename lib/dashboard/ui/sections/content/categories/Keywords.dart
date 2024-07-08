@@ -68,7 +68,8 @@ class KeywordsState extends State<Keywords> {
 
     for (var element in widget.allProducts) {
 
-      if (element.productKeyword() != 'Editors Choices') {
+      if (element.productKeyword() != 'Editors Choices'
+        && element.productKeyword() != 'Brands') {
 
         keywords.add(keywordItem(element));
 

@@ -120,14 +120,10 @@ class CategoryItemState extends State<CategoryItem> {
                   )
                 ),
 
-                SizedBox(
-                  height: 126,
+                Expanded(
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(19),
-                      child: SizedBox(
-                        height: 97,
-                        child: categoryProducts,
-                      )
+                      child: categoryProducts
                   )
                 )
 
@@ -172,6 +168,8 @@ class CategoryItemState extends State<CategoryItem> {
 
     coolGadgetsList.shuffle();
 
+    productsDataStructure.shuffle();
+
     setState(() {
 
       categoryProducts = DynMouseScroll(
@@ -196,7 +194,7 @@ class CategoryItemState extends State<CategoryItem> {
   Widget productsItem(ProductDataStructure productDataStructure) {
 
     return Container(
-      padding: const EdgeInsets.only(right: 13),
+      padding: const EdgeInsets.only(right: 19),
       alignment: Alignment.center,
       child: InkWell(
         onTap: () async {
@@ -204,17 +202,12 @@ class CategoryItemState extends State<CategoryItem> {
           launchUrl(Uri.parse(productDataStructure.productExternalLink()), mode: LaunchMode.externalApplication);
 
         },
-        child: SizedBox(
-            height: 97,
-            width: 97,
-            child: ShapedImage(
-              imageTye: ImageType.NETWORK,
-              path: productDataStructure.productImage(),
-              shape: Shape.Rectarcle,
-              height: 97,
-              width: 97,
-              boxFit: BoxFit.cover,
-            )
+        child: ShapedImage(
+          imageTye: ImageType.NETWORK,
+          path: productDataStructure.productImage(),
+          shape: Shape.Rectarcle,
+          height: double.infinity,
+          boxFit: BoxFit.fitHeight,
         )
       )
     );
