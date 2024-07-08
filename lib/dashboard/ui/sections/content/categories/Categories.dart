@@ -46,6 +46,8 @@ class CategoriesState extends State<Categories> {
         children: const []
     );
 
+    retrieveCategories();
+
   }
 
   @override
@@ -72,7 +74,6 @@ class CategoriesState extends State<Categories> {
 
   void retrieveCategories() {
 
-
     List<Widget> allCategories = [];
 
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
@@ -89,7 +90,7 @@ class CategoriesState extends State<Categories> {
             int gridColumnCount = (displayLogicalWidth(context) / 356).round();
 
             categoriesPlaceholder = GridView(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: gridColumnCount,
                   childAspectRatio: 1.39,
                   crossAxisSpacing: 19.0,
@@ -99,7 +100,7 @@ class CategoriesState extends State<Categories> {
                 physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 children: allCategories
-            );;
+            );
 
           });
 

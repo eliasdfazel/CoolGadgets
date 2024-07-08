@@ -29,6 +29,7 @@ class CategoryItemState extends State<CategoryItem> {
     super.initState();
 
     BackButtonInterceptor.add(aInterceptor);
+
   }
 
   @override
@@ -55,7 +56,5 @@ class CategoryItemState extends State<CategoryItem> {
       )
     );
   }
-
-
 
 }
