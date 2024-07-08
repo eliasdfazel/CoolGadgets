@@ -1,5 +1,6 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/categories/CategoriesItem.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
@@ -17,6 +18,8 @@ class Categories extends StatefulWidget {
 class CategoriesState extends State<Categories> {
 
   Endpoints endpoints = Endpoints();
+
+  CacheTime cacheTime = CacheTime();
 
   Widget categoriesPlaceholder = ListView();
 
@@ -73,10 +76,27 @@ class CategoriesState extends State<Categories> {
 
   void retrieveCategories() {
 
+    GetOptions getOptions = const GetOptions(source: Source.server);
+
+    cacheTime.afterTime().then((afterSevenDays) {
+
+      if (afterSevenDays) {
+
+        getOptions = const GetOptions(source: Source.server);
+
+      } else {
+
+        getOptions = const GetOptions(source: Source.cache);
+
+      }
+
+    });
 
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
         .orderBy(CategoriesDataStructure.categoryIndex)
-        .get().then((querySnapshot) {
+        .get(getOptions).then((querySnapshot) {
+
+          cacheTime.store(DateTime.now().microsecondsSinceEpoch);
 
           prepareCategories(querySnapshot);
 

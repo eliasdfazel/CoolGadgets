@@ -1,5 +1,6 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/dashboard/data/BrandsDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
@@ -20,6 +21,8 @@ class Brands extends StatefulWidget {
 class BrandsState extends State<Brands> {
 
   Endpoints endpoints = Endpoints();
+
+  CacheTime cacheTime = CacheTime();
 
   Widget brandsPlaceholder = Container();
 
@@ -196,9 +199,27 @@ class BrandsState extends State<Brands> {
 
     List<Widget> allBrands = [];
 
+    GetOptions getOptions = const GetOptions(source: Source.server);
+
+    cacheTime.afterTime().then((afterSevenDays) {
+
+      if (afterSevenDays) {
+
+        getOptions = const GetOptions(source: Source.server);
+
+      } else {
+
+        getOptions = const GetOptions(source: Source.cache);
+
+      }
+
+    });
+
     FirebaseFirestore.instance.collection(endpoints.brandsCollection())
         .orderBy(BrandsDataStructure.categoryIndex, descending: true)
-        .get().then((querySnapshot) {
+        .get(getOptions).then((querySnapshot) {
+
+          cacheTime.store(DateTime.now().microsecondsSinceEpoch);
 
           for (var element in querySnapshot.docs) {
 
