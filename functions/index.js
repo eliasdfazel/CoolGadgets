@@ -10,6 +10,9 @@ const FieldValue = require('firebase-admin').firestore.FieldValue;
 
 const XMLHttpRequest = require("xhr2").XMLHttpRequest;
 
+const palette = require('image-palette');
+const pixels = require('image-pixels');
+
 const runtimeOptions = {
     timeoutSeconds: 512,
 }
@@ -135,7 +138,7 @@ async function retrieveCoolGadgets(numberOfPage) {
 
 }
 
-function setupCoolGadgets(jsonObject) {
+async function setupCoolGadgets(jsonObject) {
 
     const categoryId = jsonObject['id'].toString();
     const parentId = jsonObject['parent'].toString();
@@ -147,6 +150,8 @@ function setupCoolGadgets(jsonObject) {
         
         const categoryImage = jsonObject['image']['src'].toString();
 
+        const dominantColor = await extractPalette(categoryImage);
+
         var firestoreDirectory = '/' + 'CoolGadgets'
             + '/' + 'Products'
             + '/' + 'Categories'
@@ -156,12 +161,34 @@ function setupCoolGadgets(jsonObject) {
             categoryId: categoryId,
             categoryName: categoryName,
             categoryDescription: categoryDescription,
-            categoryImage: categoryImage
+            categoryImage: categoryImage,
+            categoryColor: dominantColor,
         }).then(result => { }).catch(error => { functions.logger.log(error); });
 
     }
 
 }
+
+async function extractPalette(imageLink) {
+
+    var {ids, colors} = palette(await pixels(imageLink));
+
+    return colors[0];
+}
 /*
  * END - Extract Cool Gadgets Subcategory
  */
+
+exports.experiment = functions.runWith(runtimeOptions).https.onRequest((req, res) => {
+
+    
+
+});
+
+async function experimentSync() {
+
+}
+
+async function experimentProcess() {
+
+}
