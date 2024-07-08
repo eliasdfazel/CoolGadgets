@@ -60,7 +60,10 @@ class OffersState extends State<Offers> {
         constraints: const BoxConstraints(minHeight: 146, maxWidth: 1024),
         child: SizedBox(
             height: 146,
-            child: brandsPlaceholder
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(13),
+              child: brandsPlaceholder
+            )
         )
     );
   }
