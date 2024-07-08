@@ -92,7 +92,7 @@ class KeywordsState extends State<Keywords> {
     debugPrint("Product: ${productDataStructure.productName()} - Keyword: ${productDataStructure.productKeyword()}");
 
     return Padding(
-      padding: const EdgeInsets.only(right: 7),
+      padding: const EdgeInsets.only(right: 13),
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11),

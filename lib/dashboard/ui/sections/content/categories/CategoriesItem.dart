@@ -194,7 +194,7 @@ class CategoryItemState extends State<CategoryItem> {
   Widget productsItem(ProductDataStructure productDataStructure) {
 
     return Container(
-      padding: const EdgeInsets.only(right: 19),
+      padding: const EdgeInsets.only(right: 19, top: 19),
       alignment: Alignment.center,
       child: InkWell(
         onTap: () async {
