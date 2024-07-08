@@ -81,7 +81,7 @@ class SearchState extends State<Search> {
                                         decoration: InputDecoration(
                                             hintText: StringsResources.hintSearch(),
                                             hintStyle: TextStyle(
-                                                fontSize: 23,
+                                                fontSize: 19,
                                                 color: ColorsResources.premiumLight.withOpacity(0.37),
                                                 decoration: TextDecoration.none
                                             ),
@@ -99,7 +99,7 @@ class SearchState extends State<Search> {
                                             )
                                         ),
                                         style: const TextStyle(
-                                            fontSize: 23,
+                                            fontSize: 19,
                                             color: ColorsResources.premiumLight,
                                             decoration: TextDecoration.none
                                         )
