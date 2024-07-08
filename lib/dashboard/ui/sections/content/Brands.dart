@@ -201,7 +201,8 @@ class BrandsState extends State<Brands> {
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 
-    cacheTime.afterTime().then((afterSevenDays) {
+    cacheTime.afterTime('BRANDS').then((afterSevenDays) {
+      debugPrint('Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
@@ -219,7 +220,7 @@ class BrandsState extends State<Brands> {
         .orderBy(BrandsDataStructure.categoryIndex, descending: true)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store(DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch);
 
           for (var element in querySnapshot.docs) {
 

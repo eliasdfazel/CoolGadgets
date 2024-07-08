@@ -78,7 +78,8 @@ class OffersState extends State<Offers> {
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 
-    cacheTime.afterTime().then((afterSevenDays) {
+    cacheTime.afterTime('OFFERS').then((afterSevenDays) {
+      debugPrint('Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
@@ -96,7 +97,7 @@ class OffersState extends State<Offers> {
         .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store(DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch);
 
           for (var element in querySnapshot.docs) {
 

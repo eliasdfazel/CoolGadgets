@@ -78,7 +78,8 @@ class CategoriesState extends State<Categories> {
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 
-    cacheTime.afterTime().then((afterSevenDays) {
+    cacheTime.afterTime('CATEGORIES').then((afterSevenDays) {
+      debugPrint('Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
@@ -96,7 +97,7 @@ class CategoriesState extends State<Categories> {
         .orderBy(CategoriesDataStructure.categoryIndex)
         .get(getOptions).then((querySnapshot) {
 
-          cacheTime.store(DateTime.now().microsecondsSinceEpoch);
+          cacheTime.store('CATEGORIES', DateTime.now().microsecondsSinceEpoch);
 
           prepareCategories(querySnapshot);
 
