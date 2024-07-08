@@ -45,8 +45,9 @@ class SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
+    return Container(
         padding: const EdgeInsets.only(bottom: 37, left: 37, right: 37),
+        constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
         child: SizedBox(
             height: 73,
             child: Blur(

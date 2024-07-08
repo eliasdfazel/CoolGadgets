@@ -43,25 +43,26 @@ class HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
+    return Container(
       padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
+      constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
       child: SizedBox(
-          height: 73,
-          child: Blur(
-              blur: 7,
-              blurColor: ColorsResources.premiumDark,
-              colorOpacity: 0.19,
-              borderRadius: BorderRadius.circular(19),
-              overlay: SizedBox(
-                  height: 73,
-                  width: double.maxFinite,
-                  child: Row(
-                      children: [
+        height: 73,
+        child: Blur(
+            blur: 7,
+            blurColor: ColorsResources.premiumDark,
+            colorOpacity: 0.19,
+            borderRadius: BorderRadius.circular(19),
+            overlay: SizedBox(
+                height: 73,
+                width: double.maxFinite,
+                child: Row(
+                    children: [
 
-                        SizedBox(
-                            height: 73,
-                            width: 73,
-                            child: ClipRRect(
+                      SizedBox(
+                          height: 73,
+                          width: 73,
+                          child: ClipRRect(
                               borderRadius: const BorderRadius.all(Radius.circular(13)),
                               child: Material(
                                   shadowColor: Colors.transparent,
@@ -109,95 +110,95 @@ class HeaderState extends State<Header> {
                                       },
                                       child: Container(
                                           alignment: Alignment.center,
-                                          height: 59,
-                                          width: 59,
+                                          height: 51,
+                                          width: 51,
                                           child: Image.asset(
                                             'images/logo.png',
-                                            height: 59,
-                                            width: 59,
+                                            height: 51,
+                                            width: 51,
                                             fit: BoxFit.contain,
                                           )
                                       )
                                   )
                               )
-                            )
-                        ),
+                          )
+                      ),
 
-                        Expanded(
+                      Expanded(
                           child: SizedBox(
-                            height: 73,
-                            child: ClipRRect(
-                                borderRadius: const BorderRadius.all(Radius.circular(13)),
-                                child: Material(
-                                    shadowColor: Colors.transparent,
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                        splashColor: ColorsResources.dark,
-                                        splashFactory: InkRipple.splashFactory,
-                                        onTap: () {
+                              height: 73,
+                              child: ClipRRect(
+                                  borderRadius: const BorderRadius.all(Radius.circular(13)),
+                                  child: Material(
+                                      shadowColor: Colors.transparent,
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                          splashColor: ColorsResources.dark,
+                                          splashFactory: InkRipple.splashFactory,
+                                          onTap: () {
 
 
 
-                                        },
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                              StringsResources.titleCoolGadgets(),
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                  color: ColorsResources.premiumLight,
-                                                  fontSize: 19,
-                                                  letterSpacing: 1.73,
-                                                  fontWeight: FontWeight.bold
+                                          },
+                                          child: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                  StringsResources.titleCoolGadgets(),
+                                                  textAlign: TextAlign.center,
+                                                  style: const TextStyle(
+                                                      color: ColorsResources.premiumLight,
+                                                      fontSize: 19,
+                                                      letterSpacing: 1.73,
+                                                      fontWeight: FontWeight.bold
+                                                  )
                                               )
                                           )
-                                        )
-                                    )
-                                )
-                            )
+                                      )
+                                  )
+                              )
                           )
-                        ),
+                      ),
 
-                        SizedBox(
-                            height: 73,
-                            width: 73,
-                            child: ClipRRect(
-                                borderRadius: const BorderRadius.all(Radius.circular(13)),
-                                child: Material(
-                                    shadowColor: Colors.transparent,
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                        splashColor: ColorsResources.dark,
-                                        splashFactory: InkRipple.splashFactory,
-                                        onTap: () {
+                      SizedBox(
+                          height: 73,
+                          width: 73,
+                          child: ClipRRect(
+                              borderRadius: const BorderRadius.all(Radius.circular(13)),
+                              child: Material(
+                                  shadowColor: Colors.transparent,
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                      splashColor: ColorsResources.dark,
+                                      splashFactory: InkRipple.splashFactory,
+                                      onTap: () {
 
-                                          launchUrl(Uri.parse('https://GeeksEmpire.co/Exclusive'), mode: LaunchMode.externalApplication);
+                                        launchUrl(Uri.parse('https://GeeksEmpire.co/Exclusive'), mode: LaunchMode.externalApplication);
 
-                                        },
-                                        child: Container(
-                                            alignment: Alignment.center,
-                                            height: 37,
-                                            width: 37,
-                                            child: Image.asset(
-                                              'images/menu.png',
-                                              height: 37,
-                                              width: 37,
-                                              fit: BoxFit.contain,
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
+                                      },
+                                      child: Container(
+                                          alignment: Alignment.center,
+                                          height: 33,
+                                          width: 33,
+                                          child: Image.asset(
+                                            'images/menu.png',
+                                            height: 33,
+                                            width: 33,
+                                            fit: BoxFit.contain,
+                                          )
+                                      )
+                                  )
+                              )
+                          )
+                      )
 
-                      ]
-                  )
-              ),
-              child: const SizedBox(
-                  height: 73,
-                  width: double.maxFinite
-              )
-          )
+                    ]
+                )
+            ),
+            child: const SizedBox(
+                height: 73,
+                width: double.maxFinite
+            )
+        ),
       )
     );
   }
