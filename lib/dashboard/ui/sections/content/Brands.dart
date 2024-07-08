@@ -107,7 +107,7 @@ class BrandsState extends State<Brands> {
                 child: Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: Container(
-                        constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
+                        constraints: const BoxConstraints(minHeight: 79, maxWidth: 1024),
                         decoration: BoxDecoration(
                             border: const Border.symmetric(
                                 vertical: BorderSide(

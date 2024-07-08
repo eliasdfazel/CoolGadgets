@@ -18,7 +18,7 @@ class OffersState extends State<Offers> {
 
   Endpoints endpoints = Endpoints();
 
-  Widget brandsPlaceholder = Container();
+  Widget brandsPlaceholder = ListView();
 
   ScrollController scrollController = ScrollController();
 

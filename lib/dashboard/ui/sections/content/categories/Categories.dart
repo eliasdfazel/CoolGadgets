@@ -11,6 +11,8 @@ class Categories extends StatefulWidget {
 }
 class CategoriesState extends State<Categories> {
 
+  Widget categoriesPlaceholder = ListView();
+
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
     SystemNavigator.pop();
@@ -23,6 +25,13 @@ class CategoriesState extends State<Categories> {
     super.initState();
 
     BackButtonInterceptor.add(aInterceptor);
+
+    categoriesPlaceholder = ListView(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        children: const []
+    );
+
   }
 
   @override
@@ -36,12 +45,14 @@ class CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
 
-    return Stack(
-        children: [
-
-
-
-        ]
+    return Container(
+        height: 146,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
+        child: Container(
+            constraints: const BoxConstraints(maxWidth: 1024),
+            child: categoriesPlaceholder
+        )
     );
   }
 
