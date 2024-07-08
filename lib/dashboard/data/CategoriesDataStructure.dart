@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:color/color.dart';
 
 class CategoriesDataStructure {
 
@@ -36,9 +37,11 @@ class CategoriesDataStructure {
     return documentData[CategoriesDataStructure.categoryDescription].toString();
   }
 
-  String categoryColorValue() {
+  Color categoryColorValue() {
 
-    return documentData[CategoriesDataStructure.categoryColor];
+    final colorRGB = documentData[CategoriesDataStructure.categoryColor].toString().split(',');
+
+    return Color.rgb(int.parse(colorRGB[0]), int.parse(colorRGB[1]), int.parse(colorRGB[2])) ?? Color.rgb(255, 213, 224);
   }
 
 }

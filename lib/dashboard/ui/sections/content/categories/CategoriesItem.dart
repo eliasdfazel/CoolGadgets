@@ -1,16 +1,19 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Categories extends StatefulWidget {
+class CategoryItem extends StatefulWidget {
 
-  const Categories({Key? key}) : super(key: key);
+  CategoriesDataStructure categoriesDataStructure;
+
+  CategoryItem({Key? key, required this.categoriesDataStructure}) : super(key: key);
 
   @override
-  State<Categories> createState() => CategoriesState();
+  State<CategoryItem> createState() => CategoryItemState();
 }
-class CategoriesState extends State<Categories> {
+class CategoryItemState extends State<CategoryItem> {
 
   Color backgroundColor = ColorsResources.blue;
 
@@ -40,12 +43,14 @@ class CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
 
     return SizedBox(
-      height: 146,
+      height: 237,
       width: 356,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(19),
         child: Container(
-          color: backgroundColor,
+          decoration: BoxDecoration(
+            color: widget.categoriesDataStructure.categoryColorValue()
+          ),
         )
       )
     );

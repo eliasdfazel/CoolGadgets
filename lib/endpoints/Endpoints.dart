@@ -7,6 +7,11 @@ class Endpoints {
     return '/CoolGadgets/Products/Brands';
   }
 
+  String categoriesCollection() {
+
+    return '/CoolGadgets/Products/Categories';
+  }
+
   String offersCollection() {
 
     return '/CoolGadgets/Exclusive/Offers';

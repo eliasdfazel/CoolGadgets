@@ -76,30 +76,30 @@ class OffersState extends State<Offers> {
     FirebaseFirestore.instance.collection(endpoints.offersCollection())
         .get().then((querySnapshot) {
 
-      for (var element in querySnapshot.docs) {
+          for (var element in querySnapshot.docs) {
 
-        allOffers.add(offerItem(OffersDataStructure(element)));
+            allOffers.add(offerItem(OffersDataStructure(element)));
 
-      }
+          }
 
-      setState(() {
+          setState(() {
 
-        brandsPlaceholder = DynMouseScroll(
-            durationMS: 555,
-            scrollSpeed: 5.5,
-            animationCurve: Curves.easeInOut,
-            builder: (context, controller, physics) => ListView(
-                controller: scrollController,
-                padding: const EdgeInsets.symmetric(horizontal: 13),
-                scrollDirection: Axis.horizontal,
-                physics: const RangeMaintainingScrollPhysics(),
-                children: allOffers
-            )
-        );
+            brandsPlaceholder = DynMouseScroll(
+                durationMS: 555,
+                scrollSpeed: 5.5,
+                animationCurve: Curves.easeInOut,
+                builder: (context, controller, physics) => ListView(
+                    controller: scrollController,
+                    padding: const EdgeInsets.symmetric(horizontal: 13),
+                    scrollDirection: Axis.horizontal,
+                    physics: const RangeMaintainingScrollPhysics(),
+                    children: allOffers
+                )
+            );
 
-      });
+          });
 
-    });
+        });
 
   }
 
