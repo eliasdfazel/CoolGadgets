@@ -1,16 +1,20 @@
+
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
+import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Keywords extends StatefulWidget {
 
+  String categoryName;
   Color categoryColor;
+
   List<ProductDataStructure> allProducts;
 
-  Keywords({Key? key, required this.categoryColor, required this.allProducts}) : super(key: key);
+  Keywords({Key? key, required this.categoryName, required this.categoryColor, required this.allProducts}) : super(key: key);
 
   @override
   State<Keywords> createState() => KeywordsState();
@@ -31,8 +35,11 @@ class KeywordsState extends State<Keywords> {
   @override
   void initState() {
     super.initState();
+    debugPrint("Category Name: ${widget.categoryName}");
 
     BackButtonInterceptor.add(aInterceptor);
+
+    allKeywords = ListView();
 
     prepareKeywords();
 
@@ -49,13 +56,9 @@ class KeywordsState extends State<Keywords> {
   @override
   Widget build(BuildContext context) {
 
-    return Container(
-        padding: const EdgeInsets.only(top: 37, left: 37, right: 37),
-        constraints: const BoxConstraints(minHeight: 73, maxWidth: 1024),
-        child: SizedBox(
-          height: 37,
-          child: allKeywords
-        )
+    return SizedBox(
+      height: 37,
+      child: allKeywords
     );
   }
 
@@ -65,7 +68,11 @@ class KeywordsState extends State<Keywords> {
 
     for (var element in widget.allProducts) {
 
-      keywords.add(keywordItem(element));
+      if (element.productKeyword() != 'Editors Choices') {
+
+        keywords.add(keywordItem(element));
+
+      }
 
     }
 
@@ -81,21 +88,21 @@ class KeywordsState extends State<Keywords> {
   }
 
   Widget keywordItem(ProductDataStructure productDataStructure) {
-    debugPrint(productDataStructure.productKeyword());
+    debugPrint("Product: ${productDataStructure.productName()} - Keyword: ${productDataStructure.productKeyword()}");
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+      padding: const EdgeInsets.only(right: 7),
       child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: BorderRadius.circular(11),
             border: Border.symmetric(
                 vertical: BorderSide(
-                    color: widget.categoryColor,
+                    color: widget.categoryColor.withOpacity(0.51),
                     width: 3,
                     style: BorderStyle.solid
                 ),
                 horizontal: BorderSide(
-                    color: widget.categoryColor,
+                    color: widget.categoryColor.withOpacity(0.51),
                     width: 1,
                     style: BorderStyle.solid
                 )
@@ -109,8 +116,16 @@ class KeywordsState extends State<Keywords> {
               },
               child: Align(
                   alignment: Alignment.center,
-                  child: Text(
-                      productDataStructure.productKeyword()
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 13),
+                    child: Text(
+                      productDataStructure.productKeyword(),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: ColorsResources.premiumLight,
+                        letterSpacing: 1.73
+                      ),
+                    )
                   )
               )
           )

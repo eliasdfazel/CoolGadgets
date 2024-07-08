@@ -81,10 +81,10 @@ class CategoryItemState extends State<CategoryItem> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(19),
                   child: Container(
-                    height: 97,
+                    height: 111,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
-                        color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.377)
+                        color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.37)
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +120,8 @@ class CategoryItemState extends State<CategoryItem> {
                   )
                 ),
 
-                Expanded(
+                SizedBox(
+                  height: 126,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(19),
                       child: SizedBox(
@@ -186,7 +187,7 @@ class CategoryItemState extends State<CategoryItem> {
           )
       );
 
-      keywordsPlaceholder = Keywords(categoryColor: widget.categoriesDataStructure.categoryColorValue(), allProducts: productsDataStructure);
+      keywordsPlaceholder = Keywords(categoryName: widget.categoriesDataStructure.categoryNameValue(), categoryColor: widget.categoriesDataStructure.categoryColorValue(), allProducts: productsDataStructure);
 
     });
 
