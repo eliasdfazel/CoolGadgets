@@ -83,13 +83,13 @@ class OffersState extends State<Offers> {
 
       if (afterSevenDays) {
 
-        getOptions = const GetOptions(source: Source.server);
-
-        cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
+        getOptions = const GetOptions(source: Source.cache);
 
       } else {
 
-        getOptions = const GetOptions(source: Source.cache);
+        getOptions = const GetOptions(source: Source.server);
+
+        cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
 
       }
 

@@ -23,7 +23,7 @@ class CacheTime extends CacheIO {
 
     int deltaTime = DateTime.now().millisecondsSinceEpoch - storedTime;
 
-    return (deltaTime <= daysSevenMilliseconds);
+    return (deltaTime < daysSevenMilliseconds);
   }
 
 }

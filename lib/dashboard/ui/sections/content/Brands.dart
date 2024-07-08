@@ -206,13 +206,13 @@ class BrandsState extends State<Brands> {
 
       if (afterSevenDays) {
 
-        getOptions = const GetOptions(source: Source.server);
-
-        cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch.toString());
+        getOptions = const GetOptions(source: Source.cache);
 
       } else {
 
-        getOptions = const GetOptions(source: Source.cache);
+        getOptions = const GetOptions(source: Source.server);
+
+        cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch.toString());
 
       }
 
