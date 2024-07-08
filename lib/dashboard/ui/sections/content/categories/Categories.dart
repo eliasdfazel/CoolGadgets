@@ -79,11 +79,13 @@ class CategoriesState extends State<Categories> {
     GetOptions getOptions = const GetOptions(source: Source.server);
 
     cacheTime.afterTime('CATEGORIES').then((afterSevenDays) {
-      debugPrint('Cached Time: $afterSevenDays');
+      debugPrint('CATEGORIES Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
         getOptions = const GetOptions(source: Source.server);
+
+        cacheTime.store('CATEGORIES', DateTime.now().microsecondsSinceEpoch.toString());
 
       } else {
 
@@ -96,8 +98,6 @@ class CategoriesState extends State<Categories> {
     FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
         .orderBy(CategoriesDataStructure.categoryIndex)
         .get(getOptions).then((querySnapshot) {
-
-          cacheTime.store('CATEGORIES', DateTime.now().microsecondsSinceEpoch.toString());
 
           prepareCategories(querySnapshot);
 

@@ -202,11 +202,13 @@ class BrandsState extends State<Brands> {
     GetOptions getOptions = const GetOptions(source: Source.server);
 
     cacheTime.afterTime('BRANDS').then((afterSevenDays) {
-      debugPrint('Cached Time: $afterSevenDays');
+      debugPrint('BRANDS Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
         getOptions = const GetOptions(source: Source.server);
+
+        cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch.toString());
 
       } else {
 
@@ -219,8 +221,6 @@ class BrandsState extends State<Brands> {
     FirebaseFirestore.instance.collection(endpoints.brandsCollection())
         .orderBy(BrandsDataStructure.categoryIndex, descending: true)
         .get(getOptions).then((querySnapshot) {
-
-          cacheTime.store('BRANDS', DateTime.now().microsecondsSinceEpoch.toString());
 
           for (var element in querySnapshot.docs) {
 

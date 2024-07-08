@@ -79,11 +79,13 @@ class OffersState extends State<Offers> {
     GetOptions getOptions = const GetOptions(source: Source.server);
 
     cacheTime.afterTime('OFFERS').then((afterSevenDays) {
-      debugPrint('Cached Time: $afterSevenDays');
+      debugPrint('OFFERS Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
         getOptions = const GetOptions(source: Source.server);
+
+        cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
 
       } else {
 
@@ -96,8 +98,6 @@ class OffersState extends State<Offers> {
     FirebaseFirestore.instance.collection(endpoints.offersCollection())
         .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) {
-
-          cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
 
           for (var element in querySnapshot.docs) {
 
