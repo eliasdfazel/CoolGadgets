@@ -27,6 +27,7 @@ class CategoryItemState extends State<CategoryItem> {
   @override
   void initState() {
     super.initState();
+    debugPrint('${widget.categoriesDataStructure}');
 
     BackButtonInterceptor.add(aInterceptor);
 
