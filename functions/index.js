@@ -162,7 +162,7 @@ async function setupCoolGadgets(jsonObject) {
             categoryName: categoryName,
             categoryDescription: categoryDescription,
             categoryImage: categoryImage,
-            categoryColor: dominantColor,
+            categoryColor: dominantColor.toString(),
         }).then(result => { }).catch(error => { functions.logger.log(error); });
 
     }
