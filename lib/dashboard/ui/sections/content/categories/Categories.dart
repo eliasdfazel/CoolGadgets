@@ -26,9 +26,16 @@ class CategoriesState extends State<Categories> {
 
     BackButtonInterceptor.add(aInterceptor);
 
-    categoriesPlaceholder = ListView(
-        physics: const NeverScrollableScrollPhysics(),
+    categoriesPlaceholder = GridView(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          childAspectRatio: 1.39,
+          crossAxisSpacing: 19.0,
+          mainAxisSpacing: 19.0,
+        ),
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        scrollDirection: Axis.vertical,
         children: const []
     );
 

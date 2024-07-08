@@ -1,4 +1,5 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,8 @@ class Categories extends StatefulWidget {
   State<Categories> createState() => CategoriesState();
 }
 class CategoriesState extends State<Categories> {
+
+  Color backgroundColor = ColorsResources.blue;
 
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
@@ -36,13 +39,18 @@ class CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
 
-    return Stack(
-        children: [
-
-
-
-        ]
+    return SizedBox(
+      height: 146,
+      width: 356,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(19),
+        child: Container(
+          color: backgroundColor,
+        )
+      )
     );
   }
+
+
 
 }
