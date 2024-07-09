@@ -264,17 +264,14 @@ class CategoryItemState extends State<CategoryItem> {
                   SizedBox(
                       height: 187,
                       width: 187,
-                      child: Opacity(
-                        opacity: 0.99,
-                        child: ShapedImage(
-                          imageTye: ImageType.ASSET,
-                          path: 'images/gradient.png',
-                          shape: Shape.Rectarcle,
-                          height: 187,
-                          width: 187,
-                          boxFit: BoxFit.cover,
-                          color: widget.categoriesDataStructure.categoryColorValue(),
-                        )
+                      child: ShapedImage(
+                        imageTye: ImageType.ASSET,
+                        path: 'images/gradient.png',
+                        shape: Shape.Rectarcle,
+                        height: 187,
+                        width: 187,
+                        boxFit: BoxFit.cover,
+                        color: widget.categoriesDataStructure.categoryColorValue(),
                       )
                   ),
 
