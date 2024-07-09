@@ -206,7 +206,8 @@ class CategoryItemState extends State<CategoryItem> {
             imageTye: ImageType.NETWORK,
             path: productDataStructure.productImage(),
             shape: Shape.Rectarcle,
-            height: double.infinity,
+            height: 199,
+            width: 199,
             boxFit: BoxFit.cover,
           )
       )
