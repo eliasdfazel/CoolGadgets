@@ -112,9 +112,9 @@ exports.extractCoolGadgets = functions.runWith(runtimeOptions).https.onRequest((
 async function retrieveCoolGadgets(numberOfPage) {
 
     var allCategories = 'https://geeksempire.co/wp-json/wc/v3/products/categories?consumer_key=ck_e469d717bd778da4fb9ec24881ee589d9b202662&consumer_secret=cs_ac53c1b36d1a85e36a362855d83af93f0d377686'
-    + '&page=' + numberOfPage
-    + '&per_page=100'
-    + '&orderby=count&order=desc';
+        + '&page=' + numberOfPage
+        + '&per_page=100'
+        + '&orderby=count&order=desc';
 
     var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.open('GET', allCategories, true);
@@ -192,11 +192,3 @@ exports.experiment = functions.runWith(runtimeOptions).https.onRequest((req, res
     
 
 });
-
-async function experimentSync() {
-
-}
-
-async function experimentProcess() {
-
-}
