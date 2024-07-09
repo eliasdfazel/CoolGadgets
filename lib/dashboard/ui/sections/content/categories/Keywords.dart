@@ -73,7 +73,11 @@ class KeywordsState extends State<Keywords> {
       if (element.productKeyword() != 'Editors Choices'
         && element.productKeyword() != 'Brands') {
 
-        keywords.add(keywordItem(element));
+        if (!keywords.contains(element)) {
+
+          keywords.add(keywordItem(element));
+
+        }
 
       }
 
@@ -138,18 +142,14 @@ class KeywordsState extends State<Keywords> {
 
   void keywordProcess(String keywordQuery) async {
 
-    if (keywordQuery.length >= 3) {
+    launchUrl(Uri.parse(endpoints.keywordEndpoint(keywordQuery.replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
 
-      launchUrl(Uri.parse(endpoints.keywordEndpoint(keywordQuery.replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
-
-      FirebaseAnalytics.instance.logEvent(
-          name: Analytics.keyword,
-          parameters: {
-            Analytics.keywordTitle: keywordQuery,
-          }
-      );
-
-    }
+    FirebaseAnalytics.instance.logEvent(
+        name: Analytics.keyword,
+        parameters: {
+          Analytics.keywordTitle: keywordQuery,
+        }
+    );
 
   }
 
