@@ -8,6 +8,7 @@ import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Keywords.d
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:cool_gadgets/utils/widgets/BlendMask.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -233,13 +234,39 @@ class CategoryItemState extends State<CategoryItem> {
           child: SizedBox(
             height: 187,
             width: 187,
-            child: ShapedImage(
-              imageTye: ImageType.NETWORK,
-              path: productDataStructure.productImage(),
-              shape: Shape.Rectarcle,
-              height: 187,
-              width: 187,
-              boxFit: BoxFit.cover,
+            child: Stack(
+                children: [
+
+                  SizedBox(
+                    height: 187,
+                    width: 187,
+                    child: ShapedImage(
+                      imageTye: ImageType.NETWORK,
+                      path: 'https://m.media-amazon.com/images/I/517pZO1OLrL._AC_SL1000_.jpg',//productDataStructure.productImage(),
+                      shape: Shape.Rectarcle,
+                      height: 187,
+                      width: 187,
+                      boxFit: BoxFit.cover,
+                    )
+                  ),
+
+                  BlendMask(
+                      blendMode: BlendMode.colorBurn,
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 13, right: 13, bottom: 23),
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                            productDataStructure.productName().split("-").first,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: widget.categoriesDataStructure.categoryColorValue(),
+                                fontSize: 12
+                            )
+                        )
+                      )
+                  )
+
+                ]
             )
           )
       )
