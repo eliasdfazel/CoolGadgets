@@ -137,7 +137,7 @@ class HeaderState extends State<Header> {
                                           splashFactory: InkRipple.splashFactory,
                                           onTap: () {
 
-
+                                            widget.dashboardState.prepareContent();
 
                                           },
                                           child: Align(

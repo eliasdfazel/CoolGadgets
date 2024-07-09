@@ -104,14 +104,6 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                */
 
               /*
-               * Start - Category
-               */
-              // prepareCategory(),
-              /*
-               * End - Category
-               */
-
-              /*
                * Start - Content
                */
               prepareContent(),

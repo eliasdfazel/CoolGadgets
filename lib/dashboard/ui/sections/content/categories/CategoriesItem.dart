@@ -265,7 +265,7 @@ class CategoryItemState extends State<CategoryItem> {
                       height: 187,
                       width: 187,
                       child: Opacity(
-                        opacity: 0.13,
+                        opacity: 0.73,
                         child: ShapedImage(
                           imageTye: ImageType.ASSET,
                           path: 'images/gradient.png',
