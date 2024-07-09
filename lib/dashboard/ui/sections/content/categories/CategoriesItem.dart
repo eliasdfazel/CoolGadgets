@@ -98,7 +98,7 @@ class CategoryItemState extends State<CategoryItem> {
                           child: InkWell(
                             onTap: () async {
 
-                              launchUrl(Uri.parse(endpoints.keywordEndpoint(widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", "").replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
+                              launchUrl(Uri.parse(endpoints.keywordEndpoint(widget.categoriesDataStructure.categoryNameValue().replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
 
                               FirebaseAnalytics.instance.logEvent(
                                   name: Analytics.keyword,
@@ -108,14 +108,17 @@ class CategoryItemState extends State<CategoryItem> {
                               );
 
                             },
-                            child: Text(
-                                widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
-                                textAlign: TextAlign.start,
-                                maxLines: 1,
-                                style: const TextStyle(
-                                    fontSize: 23,
-                                    color: ColorsResources.premiumLight
-                                )
+                            child: SizedBox(
+                              width: double.maxFinite,
+                              child: Text(
+                                  widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
+                                  textAlign: TextAlign.start,
+                                  maxLines: 1,
+                                  style: const TextStyle(
+                                      fontSize: 23,
+                                      color: ColorsResources.premiumLight
+                                  )
+                              )
                             )
                           )
                         ),

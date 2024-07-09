@@ -4,6 +4,7 @@ import 'package:cool_gadgets/dashboard/data/Analytics.dart';
 import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:cool_gadgets/utils/operations/CollectionsUtils.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -66,16 +67,20 @@ class KeywordsState extends State<Keywords> {
 
   void prepareKeywords() {
 
-    List<Widget> keywords = [];
+    List<ProductDataStructure> keywordsValue = [];
+
+    List<Widget> keywordsList = [];
 
     for (var element in widget.allProducts) {
 
       if (element.productKeyword() != 'Editors Choices'
         && element.productKeyword() != 'Brands') {
 
-        if (!keywords.contains(element)) {
+        if (!keywordsContains(keywordsValue, element.productKeyword())) {
 
-          keywords.add(keywordItem(element));
+          keywordsList.add(keywordItem(element));
+
+          keywordsValue.add(element);
 
         }
 
@@ -87,7 +92,7 @@ class KeywordsState extends State<Keywords> {
 
       allKeywords = ListView(
         scrollDirection: Axis.horizontal,
-        children: keywords
+        children: keywordsList
       );
 
     });
