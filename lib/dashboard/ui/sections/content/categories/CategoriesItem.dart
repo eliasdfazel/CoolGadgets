@@ -289,7 +289,9 @@ class CategoryItemState extends State<CategoryItem> {
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   color: textColor,
-                                  fontSize: 13
+                                  letterSpacing: 1.37,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold
                               )
                           )
                       )
