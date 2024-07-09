@@ -63,7 +63,7 @@ class CategoryItemState extends State<CategoryItem> {
   Widget build(BuildContext context) {
 
     return SizedBox(
-      height: 237,
+      height: 313,
       width: 356,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(19),
