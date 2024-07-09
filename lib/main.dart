@@ -3,6 +3,7 @@ import 'package:cool_gadgets/firebase_options.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
@@ -18,6 +19,8 @@ void main() async {
   await FirebaseAppCheck.instance.activate(
       webProvider: ReCaptchaEnterpriseProvider(Privates.reCaptchEnterpriseSiteKey)
   );
+
+  FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
 
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,

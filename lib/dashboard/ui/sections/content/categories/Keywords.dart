@@ -1,8 +1,10 @@
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/data/Analytics.dart';
 import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -112,7 +114,7 @@ class KeywordsState extends State<Keywords> {
           child: InkWell(
               onTap: () async {
 
-                searchProcess(productDataStructure.productKeyword());
+                keywordProcess(productDataStructure.productKeyword());
 
               },
               child: Align(
@@ -134,11 +136,18 @@ class KeywordsState extends State<Keywords> {
     );
   }
 
-  void searchProcess(String searchQuery) async {
+  void keywordProcess(String keywordQuery) async {
 
-    if (searchQuery.length >= 3) {
+    if (keywordQuery.length >= 3) {
 
-      launchUrl(Uri.parse(endpoints.searchEndpoint(searchQuery)), mode: LaunchMode.externalApplication);
+      launchUrl(Uri.parse(endpoints.keywordEndpoint(keywordQuery)), mode: LaunchMode.externalApplication);
+
+      FirebaseAnalytics.instance.logEvent(
+          name: Analytics.keyword,
+          parameters: {
+            Analytics.keywordTitle: keywordQuery,
+          }
+      );
 
     }
 

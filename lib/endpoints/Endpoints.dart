@@ -22,6 +22,11 @@ class Endpoints {
     return 'https://GeeksEmpire.co/search/?searchQuery=$searchQuery';
   }
 
+  String keywordEndpoint(String keywordQuery) {
+
+    return 'https://geeksempire.co/storefront/?yith_wcan=1&product_cat=$keywordQuery&';
+  }
+
   String brandsEndpoint(String brandName) {
 
     return 'https://GeeksEmpire.co/products/editors-choices/brands/$brandName';

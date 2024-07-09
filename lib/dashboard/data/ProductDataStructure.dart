@@ -38,4 +38,22 @@ class ProductDataStructure {
     return List.from(inputDynamicJson['categories']).last['name'];
   }
 
+  String productBrand() {
+
+    String productBrand = '';
+
+    for (var element in List.from(inputDynamicJson['attributes'])) {
+
+      if (element['name'] == 'Brands') {
+
+        productBrand = List.from(element['options']).first.toString();
+
+        break;
+      }
+
+    }
+
+    return productBrand;
+  }
+
 }

@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/dashboard/data/Analytics.dart';
 import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Keywords.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -192,6 +194,7 @@ class CategoryItemState extends State<CategoryItem> {
   }
 
   Widget productsItem(ProductDataStructure productDataStructure) {
+    debugPrint('Brand: ${productDataStructure.productBrand()} - Product: ${productDataStructure.productName()}');
 
     return Container(
       padding: const EdgeInsets.only(top: 19, bottom: 13, right: 19),
@@ -201,14 +204,26 @@ class CategoryItemState extends State<CategoryItem> {
 
             launchUrl(Uri.parse(productDataStructure.productExternalLink()), mode: LaunchMode.externalApplication);
 
+            FirebaseAnalytics.instance.logEvent(
+              name: Analytics.product,
+              parameters: {
+                Analytics.productTitle: productDataStructure.productName(),
+                Analytics.productBrand: productDataStructure.productBrand(),
+              }
+            );
+
           },
-          child: ShapedImage(
-            imageTye: ImageType.NETWORK,
-            path: productDataStructure.productImage(),
-            shape: Shape.Rectarcle,
-            height: 199,
-            width: 199,
-            boxFit: BoxFit.cover,
+          child: SizedBox(
+            height: 187,
+            width: 187,
+            child: ShapedImage(
+              imageTye: ImageType.NETWORK,
+              path: productDataStructure.productImage(),
+              shape: Shape.Rectarcle,
+              height: 187,
+              width: 187,
+              boxFit: BoxFit.cover,
+            )
           )
       )
     );
