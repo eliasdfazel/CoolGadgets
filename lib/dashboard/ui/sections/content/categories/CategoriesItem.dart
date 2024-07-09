@@ -217,11 +217,11 @@ class CategoryItemState extends State<CategoryItem> {
 
     if (widget.categoriesDataStructure.categoryColorValue() == Colors.black) {
 
-      textColor = ColorsResources.white;
+      textColor = ColorsResources.premiumLight;
 
     } else {
 
-      textColor = ColorsResources.black;
+      textColor = ColorsResources.premiumDark;
 
     }
 
@@ -265,7 +265,7 @@ class CategoryItemState extends State<CategoryItem> {
                       height: 187,
                       width: 187,
                       child: Opacity(
-                        opacity: 0.73,
+                        opacity: 0.99,
                         child: ShapedImage(
                           imageTye: ImageType.ASSET,
                           path: 'images/gradient.png',
