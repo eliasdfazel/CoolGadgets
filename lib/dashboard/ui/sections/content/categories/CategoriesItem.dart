@@ -8,7 +8,6 @@ import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Keywords.d
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
-import 'package:cool_gadgets/utils/widgets/BlendMask.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -214,6 +213,18 @@ class CategoryItemState extends State<CategoryItem> {
   Widget productsItem(ProductDataStructure productDataStructure) {
     debugPrint('Brand: ${productDataStructure.productBrand()} - Product: ${productDataStructure.productName()}');
 
+    Color textColor = ColorsResources.white;
+
+    if (widget.categoriesDataStructure.categoryColorValue() == Colors.black) {
+
+      textColor = ColorsResources.white;
+
+    } else {
+
+      textColor = ColorsResources.black;
+
+    }
+
     return Container(
       padding: const EdgeInsets.only(top: 17, bottom: 17, right: 19),
       alignment: Alignment.center,
@@ -242,7 +253,7 @@ class CategoryItemState extends State<CategoryItem> {
                     width: 187,
                     child: ShapedImage(
                       imageTye: ImageType.NETWORK,
-                      path: 'https://m.media-amazon.com/images/I/517pZO1OLrL._AC_SL1000_.jpg',//productDataStructure.productImage(),
+                      path: productDataStructure.productImage(),
                       shape: Shape.Rectarcle,
                       height: 187,
                       width: 187,
@@ -250,19 +261,37 @@ class CategoryItemState extends State<CategoryItem> {
                     )
                   ),
 
-                  BlendMask(
-                      blendMode: BlendMode.colorBurn,
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 13, right: 13, bottom: 23),
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                            productDataStructure.productName().split("-").first,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: widget.categoriesDataStructure.categoryColorValue(),
-                                fontSize: 12
-                            )
+                  SizedBox(
+                      height: 187,
+                      width: 187,
+                      child: Opacity(
+                        opacity: 0.13,
+                        child: ShapedImage(
+                          imageTye: ImageType.ASSET,
+                          path: 'images/gradient.png',
+                          shape: Shape.Rectarcle,
+                          height: 187,
+                          width: 187,
+                          boxFit: BoxFit.cover,
+                          color: widget.categoriesDataStructure.categoryColorValue(),
                         )
+                      )
+                  ),
+
+                  Container(
+                      width: 187,
+                      padding: const EdgeInsets.only(left: 13, right: 13, bottom: 23),
+                      alignment: Alignment.bottomCenter,
+                      child: SizedBox(
+                          width: 187,
+                          child: Text(
+                              productDataStructure.productName().split("-").first,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 13
+                              )
+                          )
                       )
                   )
 
