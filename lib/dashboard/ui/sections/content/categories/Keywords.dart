@@ -140,7 +140,7 @@ class KeywordsState extends State<Keywords> {
 
     if (keywordQuery.length >= 3) {
 
-      launchUrl(Uri.parse(endpoints.keywordEndpoint(keywordQuery)), mode: LaunchMode.externalApplication);
+      launchUrl(Uri.parse(endpoints.keywordEndpoint(keywordQuery.replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
 
       FirebaseAnalytics.instance.logEvent(
           name: Analytics.keyword,
