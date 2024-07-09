@@ -95,13 +95,27 @@ class CategoryItemState extends State<CategoryItem> {
 
                         Padding(
                           padding: const EdgeInsets.only(top: 13, left: 19, right: 19),
-                          child: Text(
-                            widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                            style: const TextStyle(
-                              fontSize: 23,
-                              color: ColorsResources.premiumLight
+                          child: InkWell(
+                            onTap: () async {
+
+                              launchUrl(Uri.parse(endpoints.keywordEndpoint(widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", "").replaceAll(" ", "-"))), mode: LaunchMode.externalApplication);
+
+                              FirebaseAnalytics.instance.logEvent(
+                                  name: Analytics.keyword,
+                                  parameters: {
+                                    Analytics.keywordTitle: widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
+                                  }
+                              );
+
+                            },
+                            child: Text(
+                                widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
+                                textAlign: TextAlign.start,
+                                maxLines: 1,
+                                style: const TextStyle(
+                                    fontSize: 23,
+                                    color: ColorsResources.premiumLight
+                                )
                             )
                           )
                         ),
@@ -197,7 +211,7 @@ class CategoryItemState extends State<CategoryItem> {
     debugPrint('Brand: ${productDataStructure.productBrand()} - Product: ${productDataStructure.productName()}');
 
     return Container(
-      padding: const EdgeInsets.only(top: 19, bottom: 13, right: 19),
+      padding: const EdgeInsets.only(top: 17, bottom: 17, right: 19),
       alignment: Alignment.center,
       child: InkWell(
           onTap: () async {
