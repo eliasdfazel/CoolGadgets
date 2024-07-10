@@ -59,7 +59,7 @@ class ContentState extends State<Content> {
             scrollSpeed: 5.5,
             animationCurve: Curves.easeInOut,
             builder: (context, controller, physics) => ListView(
-                padding: const EdgeInsets.only(top: 173, bottom: 173),
+                padding: const EdgeInsets.only(top: 157, bottom: 157),
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 physics: const RangeMaintainingScrollPhysics(),
