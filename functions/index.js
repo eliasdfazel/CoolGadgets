@@ -230,6 +230,8 @@ async function prepapreMagazine(jsonObject) {
     const magazineId = jsonObject['id'].toString();
 
     const magazineTitle = jsonObject['title'].rendered.toString();
+    const magazineLink = jsonObject['link'].toString();
+
     const magazineImageId = jsonObject['featured_media'].toString();
 
     var magazineImageEndpoint = 'https://geeksempire.co/wp-json/wp/v2/media/' + magazineImageId;
@@ -245,14 +247,14 @@ async function prepapreMagazine(jsonObject) {
  
         const magazineImage = jsonArrayParserResponse['guid']['rendered'];
 
-        setupMagazine(magazineId, magazineTitle, magazineImage);
+        setupMagazine(magazineId, magazineTitle, magazineLink, magazineImage);
 
     };
     xmlHttpRequest.send();
 
 }
 
-async function setupMagazine(magazineId, magazineTitle, magazineImage) {
+async function setupMagazine(magazineId, magazineTitle, magazineLink, magazineImage) {
 
     var firestoreDirectory = '/' + 'CoolGadgets'
         + '/' + 'Magazine'
@@ -262,6 +264,7 @@ async function setupMagazine(magazineId, magazineTitle, magazineImage) {
     firestore.doc(firestoreDirectory).set({
         magazineId: magazineId,
         magazineTitle: magazineTitle,
+        magazineLink: magazineLink,
         magazineImage: magazineImage
     }).then(result => { }).catch(error => { functions.logger.log(error); });
 

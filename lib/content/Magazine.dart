@@ -60,7 +60,7 @@ class MagazineState extends State<Magazine> {
   Widget build(BuildContext context) {
 
     return Container(
-        height: 146,
+        height: 199,
         alignment: Alignment.center,
         padding: const EdgeInsets.only(left: 37, right: 37),
         child: Container(
@@ -138,13 +138,13 @@ class MagazineState extends State<Magazine> {
 
                 },
                 child: SizedBox(
-                    height: 179,
+                    height: 199,
                     width: 301,
                     child: Stack(
                       children: [
 
                         SizedBox(
-                            height: 179,
+                            height: 199,
                             width: 301,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(19),
@@ -158,7 +158,7 @@ class MagazineState extends State<Magazine> {
                         ),
 
                         SizedBox(
-                            height: 179,
+                            height: 199,
                             width: 301,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(19),
@@ -170,9 +170,11 @@ class MagazineState extends State<Magazine> {
                                       colors: [
                                         ColorsResources.black,
                                         ColorsResources.transparent
-                                      ]
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter
                                     )
-                                  ),
+                                  )
                                 )
                             )
                         ),
