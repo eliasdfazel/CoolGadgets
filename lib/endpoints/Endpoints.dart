@@ -17,6 +17,11 @@ class Endpoints {
     return '/CoolGadgets/Exclusive/Offers';
   }
 
+  String magazineCollection() {
+
+    return '/CoolGadgets/Magazine/Articles';
+  }
+
   String searchEndpoint(String searchQuery) {
 
     return 'https://GeeksEmpire.co/search/?searchQuery=$searchQuery';

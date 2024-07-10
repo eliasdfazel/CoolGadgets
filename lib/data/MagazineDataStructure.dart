@@ -27,7 +27,7 @@ class MagazineDataStructure extends Endpoints {
     return inputDynamicJson['magazineLink'];
   }
 
-  Future<String> magazineImage() async {
+  String magazineImage() {
 
     return jsonDecode(inputDynamicJson['magazineImage']);
   }

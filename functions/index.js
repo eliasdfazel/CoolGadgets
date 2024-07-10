@@ -198,10 +198,10 @@ exports.extractMagazine = functions.runWith(runtimeOptions).https.onRequest((req
 
 async function retrieveMagazine() {
 
-    var allCategories = 'https://geeksempire.co/wp-json/wp/v2/posts?tags=5884,7136&per_page=100&page=1';
+    var allMagazine = 'https://geeksempire.co/wp-json/wp/v2/posts?tags=5884,7136&per_page=100&page=1';
 
     var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.open('GET', allCategories, true);
+    xmlHttpRequest.open('GET', allMagazine, true);
     xmlHttpRequest.setRequestHeader('Authorization', 'Basic Z2Vla3NlbXBpcmVpbmM6KmdYZW1waXJlIzEwMjk2JA==');
     xmlHttpRequest.setRequestHeader('accept', 'application/json');
     xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
@@ -213,7 +213,7 @@ async function retrieveMagazine() {
 
             jsonArrayParserResponse.forEach((jsonObject) => {
 
-                setupMagazine(jsonObject);
+                prepapreMagazine(jsonObject);
     
             });
 
@@ -225,9 +225,45 @@ async function retrieveMagazine() {
 
 }
 
-async function setupMagazine() {
+async function prepapreMagazine(jsonObject) {
 
+    const magazineId = jsonObject['id'].toString();
 
+    const magazineTitle = jsonObject['title'].rendered.toString();
+    const magazineImageId = jsonObject['featured_media'].toString();
+
+    var magazineImageEndpoint = 'https://geeksempire.co/wp-json/wp/v2/media/' + magazineImageId;
+
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('GET', magazineImageEndpoint, true);
+    xmlHttpRequest.setRequestHeader('Authorization', 'Basic Z2Vla3NlbXBpcmVpbmM6KmdYZW1waXJlIzEwMjk2JA==');
+    xmlHttpRequest.setRequestHeader('accept', 'application/json');
+    xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
+    xmlHttpRequest.onload = function () {
+
+        var jsonArrayParserResponse = JSON.parse(xmlHttpRequest.responseText);
+ 
+        const magazineImage = jsonArrayParserResponse['guid']['rendered'];
+
+        setupMagazine(magazineId, magazineTitle, magazineImage);
+
+    };
+    xmlHttpRequest.send();
+
+}
+
+async function setupMagazine(magazineId, magazineTitle, magazineImage) {
+
+    var firestoreDirectory = '/' + 'CoolGadgets'
+        + '/' + 'Magazine'
+        + '/' + 'Articles'
+        + '/' + magazineId;
+
+    firestore.doc(firestoreDirectory).set({
+        magazineId: magazineId,
+        magazineTitle: magazineTitle,
+        magazineImage: magazineImage
+    }).then(result => { }).catch(error => { functions.logger.log(error); });
 
 }
 /*

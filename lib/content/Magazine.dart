@@ -4,6 +4,7 @@ import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/data/MagazineDataStructure.dart';
 import 'package:cool_gadgets/data/OffersDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
+import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
@@ -79,8 +80,8 @@ class MagazineState extends State<Magazine> {
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 
-    cacheTime.afterTime('OFFERS').then((afterSevenDays) {
-      debugPrint('OFFERS Cached Time: $afterSevenDays');
+    cacheTime.afterTime('MAGAZINE').then((afterSevenDays) {
+      debugPrint('MAGAZINE Cached Time: $afterSevenDays');
 
       if (afterSevenDays) {
 
@@ -90,13 +91,13 @@ class MagazineState extends State<Magazine> {
 
         getOptions = const GetOptions(source: Source.server);
 
-        cacheTime.store('OFFERS', DateTime.now().microsecondsSinceEpoch.toString());
+        cacheTime.store('MAGAZINE', DateTime.now().microsecondsSinceEpoch.toString());
 
       }
 
     });
 
-    FirebaseFirestore.instance.collection(endpoints.offersCollection())
+    FirebaseFirestore.instance.collection(endpoints.magazineCollection())
         .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) async {
 
@@ -128,7 +129,7 @@ class MagazineState extends State<Magazine> {
 
   }
 
-  Widget magazineItem(MagazineDataStructure magazineDataStructure, String magazineImage) {
+  Widget magazineItem(MagazineDataStructure magazineDataStructure) {
 
     return Align(
         alignment: Alignment.center,
@@ -143,11 +144,64 @@ class MagazineState extends State<Magazine> {
                 child: SizedBox(
                     height: 179,
                     width: 301,
-                    child: Image.network(
-                      magazineImage,
-                      height: 179,
-                      width: 301,
-                      fit: BoxFit.cover,
+                    child: Stack(
+                      children: [
+
+                        SizedBox(
+                            height: 179,
+                            width: 301,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(19),
+                              child: Image.network(
+                                magazineDataStructure.magazineImage(),
+                                height: 179,
+                                width: 301,
+                                fit: BoxFit.cover,
+                              )
+                            )
+                        ),
+
+                        SizedBox(
+                            height: 179,
+                            width: 301,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(19),
+                                child: Container(
+                                  height: 179,
+                                  width: 301,
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        ColorsResources.black,
+                                        ColorsResources.transparent
+                                      ]
+                                    )
+                                  ),
+                                )
+                            )
+                        ),
+
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          padding: const EdgeInsets.only(bottom: 19, left: 37, right: 37),
+                          child: Text(
+                            magazineDataStructure.magazineTitle(),
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: ColorsResources.premiumLight,
+                              fontSize: 13,
+                              shadows: [
+                                Shadow(
+                                  color: ColorsResources.black.withOpacity(0.37),
+                                  blurRadius: 5,
+                                  offset: const Offset(0.0, 5.0)
+                                )
+                              ]
+                            ),
+                          )
+                        )
+
+                      ]
                     )
                 )
             )
