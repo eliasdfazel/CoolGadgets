@@ -1,7 +1,7 @@
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/data/Analytics.dart';
-import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
+import 'package:cool_gadgets/data/Analytics.dart';
+import 'package:cool_gadgets/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/utils/operations/CollectionsUtils.dart';

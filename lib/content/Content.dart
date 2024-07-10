@@ -1,7 +1,7 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/Brands.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/Offers.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Categories.dart';
+import 'package:cool_gadgets/content/Brands.dart';
+import 'package:cool_gadgets/content/Offers.dart';
+import 'package:cool_gadgets/content/categories/Categories.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,17 +67,11 @@ class ContentState extends State<Content> {
 
                   Brands(),
 
-                  Divider(
-                    height: 37,
-                    color: ColorsResources.transparent,
-                  ),
+                  Divider(height: 37, color: ColorsResources.transparent,),
 
                   Offers(),
 
-                  Divider(
-                    height: 37,
-                    color: ColorsResources.transparent,
-                  ),
+                  Divider(height: 37, color: ColorsResources.transparent,),
 
                   Categories(),
 

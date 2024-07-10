@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:cool_gadgets/dashboard/data/Analytics.dart';
-import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
-import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/categories/Keywords.dart';
+import 'package:cool_gadgets/content/Keywords.dart';
+import 'package:cool_gadgets/data/Analytics.dart';
+import 'package:cool_gadgets/data/CategoriesDataStructure.dart';
+import 'package:cool_gadgets/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
@@ -65,7 +65,7 @@ class CategoryItemState extends State<CategoryItem> {
   Widget build(BuildContext context) {
 
     return SizedBox(
-      height: 313,
+      height: 357,
       width: 356,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(19),
@@ -243,14 +243,14 @@ class CategoryItemState extends State<CategoryItem> {
 
           },
           child: SizedBox(
-            height: 187,
-            width: 187,
+            height: 246,
+            width: 246,
             child: Stack(
                 children: [
 
                   SizedBox(
-                    height: 187,
-                    width: 187,
+                    height: 246,
+                    width: 246,
                     child: ShapedImage(
                       imageTye: ImageType.NETWORK,
                       path: productDataStructure.productImage(),
@@ -262,21 +262,21 @@ class CategoryItemState extends State<CategoryItem> {
                   ),
 
                   SizedBox(
-                      height: 187,
-                      width: 187,
+                      height: 246,
+                      width: 246,
                       child: ShapedImage(
                         imageTye: ImageType.ASSET,
                         path: 'images/gradient.png',
                         shape: Shape.Rectarcle,
-                        height: 187,
-                        width: 187,
+                        height: 246,
+                        width: 246,
                         boxFit: BoxFit.cover,
                         color: widget.categoriesDataStructure.categoryColorValue(),
                       )
                   ),
 
                   Container(
-                      width: 187,
+                      width: 246,
                       padding: const EdgeInsets.only(left: 19, right: 19, bottom: 23),
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(

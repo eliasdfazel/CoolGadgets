@@ -1,7 +1,7 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/cache/process/CacheTime.dart';
-import 'package:cool_gadgets/dashboard/data/OffersDataStructure.dart';
+import 'package:cool_gadgets/data/OffersDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

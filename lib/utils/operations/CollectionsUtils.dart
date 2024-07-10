@@ -1,4 +1,4 @@
-import 'package:cool_gadgets/dashboard/data/ProductDataStructure.dart';
+import 'package:cool_gadgets/data/ProductDataStructure.dart';
 
 bool keywordsContains(List<ProductDataStructure> inputCollection, String inputKeyword) {
 

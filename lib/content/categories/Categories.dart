@@ -1,8 +1,8 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/cache/process/CacheTime.dart';
-import 'package:cool_gadgets/dashboard/data/CategoriesDataStructure.dart';
-import 'package:cool_gadgets/dashboard/ui/sections/content/categories/CategoriesItem.dart';
+import 'package:cool_gadgets/content/categories/CategoriesItem.dart';
+import 'package:cool_gadgets/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -133,7 +133,7 @@ class CategoriesState extends State<Categories> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: gridColumnCount,
             childAspectRatio: 1.39,
-            mainAxisExtent: 313,
+            mainAxisExtent: 357,
             mainAxisSpacing: 37.0,
             crossAxisSpacing: 37.0,
           ),

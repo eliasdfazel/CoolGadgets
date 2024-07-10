@@ -42,4 +42,9 @@ class Endpoints {
         '&order=asc';
   }
 
+  String magazineByTag({String tagsCsv = "5884,7136"}) {
+
+    return "https://geeksempire.co/wp-json/wp/v2/posts?tags=$tagsCsv&per_page=100&page=1";
+  }
+
 }
