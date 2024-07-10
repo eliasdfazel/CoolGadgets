@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 
 class MagazineDataStructure extends Endpoints {
@@ -19,7 +17,7 @@ class MagazineDataStructure extends Endpoints {
 
   String magazineTitle() {
 
-    return jsonDecode(inputDynamicJson['magazineTitle']);
+    return inputDynamicJson['magazineTitle'];
   }
 
   String magazineLink() {
@@ -29,7 +27,7 @@ class MagazineDataStructure extends Endpoints {
 
   String magazineImage() {
 
-    return jsonDecode(inputDynamicJson['magazineImage']);
+    return inputDynamicJson['magazineImage'];
   }
 
 }

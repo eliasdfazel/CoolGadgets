@@ -2,7 +2,6 @@ import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/data/MagazineDataStructure.dart';
-import 'package:cool_gadgets/data/OffersDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,7 @@ class MagazineState extends State<Magazine> {
 
   CacheTime cacheTime = CacheTime();
 
-  Widget brandsPlaceholder = ListView();
+  Widget magazinePlaceholder = ListView();
 
   ScrollController scrollController = ScrollController();
 
@@ -40,7 +39,7 @@ class MagazineState extends State<Magazine> {
 
     BackButtonInterceptor.add(aInterceptor);
 
-    brandsPlaceholder = ListView(
+    magazinePlaceholder = ListView(
         controller: scrollController,
         children: const []
     );
@@ -68,7 +67,7 @@ class MagazineState extends State<Magazine> {
             constraints: const BoxConstraints(minHeight: 146, maxWidth: 1024),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(13),
-                child: brandsPlaceholder
+                child: magazinePlaceholder
             )
         )
     );
@@ -98,20 +97,17 @@ class MagazineState extends State<Magazine> {
     });
 
     FirebaseFirestore.instance.collection(endpoints.magazineCollection())
-        .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) async {
 
           for (var element in querySnapshot.docs) {
 
-            MagazineDataStructure magazineDataStructure = MagazineDataStructure(element);
-
-            allMagazine.add(magazineItem(magazineDataStructure));
+            allMagazine.add(magazineItem(MagazineDataStructure(element)));
 
           }
 
           setState(() {
 
-            brandsPlaceholder = DynMouseScroll(
+            magazinePlaceholder = DynMouseScroll(
                 durationMS: 555,
                 scrollSpeed: 5.5,
                 animationCurve: Curves.easeInOut,
