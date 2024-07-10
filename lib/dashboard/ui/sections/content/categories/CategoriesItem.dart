@@ -277,7 +277,7 @@ class CategoryItemState extends State<CategoryItem> {
 
                   Container(
                       width: 187,
-                      padding: const EdgeInsets.only(left: 13, right: 13, bottom: 23),
+                      padding: const EdgeInsets.only(left: 19, right: 19, bottom: 23),
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                           width: 187,
