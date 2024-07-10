@@ -47,4 +47,9 @@ class Endpoints {
     return "https://geeksempire.co/wp-json/wp/v2/posts?tags=$tagsCsv&per_page=100&page=1";
   }
 
+  String mediaUrl(String mediaId) {
+
+    return "https://geeksempire.co/wp-json/wp/v2/media/$mediaId";
+  }
+
 }

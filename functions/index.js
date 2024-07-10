@@ -187,6 +187,53 @@ async function extractPalette(imageLink) {
  * END - Extract Cool Gadgets Subcategory
  */
 
+/*
+ * START - Extract Magazine 
+ */
+exports.extractMagazine = functions.runWith(runtimeOptions).https.onRequest((req, res) => {
+
+    retrieveMagazine();
+
+});
+
+async function retrieveMagazine() {
+
+    var allCategories = 'https://geeksempire.co/wp-json/wp/v2/posts?tags=5884,7136&per_page=100&page=1';
+
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('GET', allCategories, true);
+    xmlHttpRequest.setRequestHeader('Authorization', 'Basic Z2Vla3NlbXBpcmVpbmM6KmdYZW1waXJlIzEwMjk2JA==');
+    xmlHttpRequest.setRequestHeader('accept', 'application/json');
+    xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
+    xmlHttpRequest.onload = function () {
+
+        var jsonArrayParserResponse = JSON.parse(xmlHttpRequest.responseText);
+        
+        if (jsonArrayParserResponse.length > 0) {
+
+            jsonArrayParserResponse.forEach((jsonObject) => {
+
+                setupMagazine(jsonObject);
+    
+            });
+
+        }
+
+    };
+    xmlHttpRequest.send();
+
+
+}
+
+async function setupMagazine() {
+
+
+
+}
+/*
+ * END - Extract Magazine 
+ */
+
 exports.experiment = functions.runWith(runtimeOptions).https.onRequest((req, res) => {
 
     
