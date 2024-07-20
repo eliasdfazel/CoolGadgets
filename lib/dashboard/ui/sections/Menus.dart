@@ -61,7 +61,7 @@ class _MenusState extends State<Menus> {
 
                         Expanded(
                             child: Text(
-                              StringsResources.titleGeeksEmpire(),
+                              StringsResources.titleGeeksEmpire,
                               maxLines: 2,
                               style: const TextStyle(
                                   color: ColorsResources.light,
@@ -92,7 +92,7 @@ class _MenusState extends State<Menus> {
                           splashFactory: InkRipple.splashFactory,
                           onTap: () {
 
-                            launchUrlString(StringsResources.projectsLink(), mode: LaunchMode.externalApplication);
+                            launchUrlString(StringsResources.projectsLink, mode: LaunchMode.externalApplication);
 
                           },
                           child: Row(
@@ -116,7 +116,7 @@ class _MenusState extends State<Menus> {
 
                                 Expanded(
                                     child: Text(
-                                      StringsResources.projects(),
+                                      StringsResources.projects,
                                       maxLines: 2,
                                       style: const TextStyle(
                                           color: ColorsResources.light,
@@ -149,7 +149,7 @@ class _MenusState extends State<Menus> {
                           splashFactory: InkRipple.splashFactory,
                           onTap: () {
 
-                            launchUrlString(StringsResources.termServiceLink(), mode: LaunchMode.externalApplication);
+                            launchUrlString(StringsResources.termServiceLink, mode: LaunchMode.externalApplication);
 
                           },
                           child: Row(
@@ -173,7 +173,7 @@ class _MenusState extends State<Menus> {
 
                                 Expanded(
                                     child: Text(
-                                      StringsResources.termService(),
+                                      StringsResources.termService,
                                       maxLines: 2,
                                       style: const TextStyle(
                                           color: ColorsResources.light,
@@ -206,7 +206,7 @@ class _MenusState extends State<Menus> {
                           splashFactory: InkRipple.splashFactory,
                           onTap: () {
 
-                            launchUrlString(StringsResources.privacyPolicyLink(), mode: LaunchMode.externalApplication);
+                            launchUrlString(StringsResources.privacyPolicyLink, mode: LaunchMode.externalApplication);
 
                           },
                           child: Row(
@@ -230,7 +230,7 @@ class _MenusState extends State<Menus> {
 
                                 Expanded(
                                     child: Text(
-                                      StringsResources.privacyPolicy(),
+                                      StringsResources.privacyPolicy,
                                       maxLines: 2,
                                       style: const TextStyle(
                                           color: ColorsResources.light,
@@ -261,7 +261,7 @@ class _MenusState extends State<Menus> {
                     InkWell(
                         onTap: () {
 
-                          launchUrlString(StringsResources.threadsLink(), mode: LaunchMode.externalApplication);
+                          launchUrlString(StringsResources.threadsLink, mode: LaunchMode.externalApplication);
 
                         },
                         child: const Image(
@@ -278,7 +278,7 @@ class _MenusState extends State<Menus> {
                     InkWell(
                         onTap: () {
 
-                          launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
+                          launchUrlString(StringsResources.twitterLink, mode: LaunchMode.externalApplication);
 
                         },
                         child: const Image(
@@ -295,7 +295,7 @@ class _MenusState extends State<Menus> {
                     InkWell(
                         onTap: () {
 
-                          launchUrlString(StringsResources.youtubeLink(), mode: LaunchMode.externalApplication);
+                          launchUrlString(StringsResources.youtubeLink, mode: LaunchMode.externalApplication);
 
                         },
                         child: const Image(

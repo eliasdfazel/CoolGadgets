@@ -143,7 +143,7 @@ class HeaderState extends State<Header> {
                                           child: Align(
                                               alignment: Alignment.center,
                                               child: Text(
-                                                  StringsResources.titleCoolGadgets(),
+                                                  StringsResources.titleCoolGadgets,
                                                   textAlign: TextAlign.center,
                                                   style: const TextStyle(
                                                       color: ColorsResources.premiumLight,

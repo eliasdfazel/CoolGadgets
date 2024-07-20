@@ -79,7 +79,7 @@ class SearchState extends State<Search> {
                                         cursorWidth: 3,
                                         cursorRadius: const Radius.circular(99),
                                         decoration: InputDecoration(
-                                            hintText: StringsResources.hintSearch(),
+                                            hintText: StringsResources.hintSearch,
                                             hintStyle: TextStyle(
                                                 fontSize: 19,
                                                 color: ColorsResources.premiumLight.withOpacity(0.37),
@@ -146,7 +146,7 @@ class SearchState extends State<Search> {
                                                   Align(
                                                       alignment: Alignment.center,
                                                       child: Text(
-                                                          StringsResources.titleSearch(),
+                                                          StringsResources.titleSearch,
                                                           textAlign: TextAlign.center,
                                                           style: const TextStyle(
                                                               color: ColorsResources.premiumLight,
@@ -160,7 +160,7 @@ class SearchState extends State<Search> {
                                                   Align(
                                                       alignment: Alignment.center,
                                                       child: Text(
-                                                          StringsResources.titleArwenAi(),
+                                                          StringsResources.titleArwenAi,
                                                           textAlign: TextAlign.center,
                                                           style: const TextStyle(
                                                               color: ColorsResources.premiumLight,

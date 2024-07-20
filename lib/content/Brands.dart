@@ -94,7 +94,7 @@ class BrandsState extends State<Brands> {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      StringsResources.titleBrands(),
+                      StringsResources.titleBrands,
                       style: const TextStyle(
                         color: ColorsResources.premiumLight,
                         fontSize: 13

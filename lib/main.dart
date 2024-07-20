@@ -24,7 +24,7 @@ void main() async {
 
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: StringsResources.titleCoolGadgets(),
+      title: StringsResources.titleCoolGadgets,
       color: ColorsResources.black,
       theme: ThemeData(
         fontFamily: 'Ubuntu',
