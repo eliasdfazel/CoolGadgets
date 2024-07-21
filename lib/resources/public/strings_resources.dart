@@ -12,7 +12,7 @@ class StringsResources {
 
   static String titleGeeksEmpire = "Geeks Empire";
 
-  static String titleCoolGadgets = "Cool Gadgets for";
+  static String titleCoolGadgets = "Cool Gadgets for Fitness, Gamers, Men, Women, Office, Home, Fun, Computer, Camping - Geeks Empire";
 
   static String titleBrands = "Brands";
 
