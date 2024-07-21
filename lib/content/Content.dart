@@ -1,4 +1,5 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/content/Associates.dart';
 import 'package:cool_gadgets/content/Brands.dart';
 import 'package:cool_gadgets/content/Magazine.dart';
 import 'package:cool_gadgets/content/Offers.dart';
@@ -64,21 +65,25 @@ class ContentState extends State<Content> {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 physics: const RangeMaintainingScrollPhysics(),
-                children: const [
+                children: [
 
-                  Brands(),
+                  const Brands(),
 
-                  Divider(height: 37, color: ColorsResources.transparent),
+                  const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Offers(),
+                  const Offers(),
 
-                  Divider(height: 37, color: ColorsResources.transparent),
+                  const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Categories(),
+                  const Categories(),
 
-                  Divider(height: 37, color: ColorsResources.transparent),
+                  const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Magazine()
+                  const Magazine(),
+
+                  const Divider(height: 37, color: ColorsResources.transparent),
+
+                  associatesBranding()
 
                 ]
             )
