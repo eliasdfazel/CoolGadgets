@@ -40,8 +40,9 @@ class CategoriesState extends State<Categories> {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 1,
           childAspectRatio: 1.39,
-          crossAxisSpacing: 19.0,
-          mainAxisSpacing: 19.0,
+          mainAxisExtent: 357,
+          mainAxisSpacing: 37.0,
+          crossAxisSpacing: 37.0,
         ),
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
