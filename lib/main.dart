@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/dashboard/ui/Dashboard.dart';
 import 'package:cool_gadgets/firebase_options.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
@@ -22,6 +23,9 @@ void main() async {
 
   FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
 
+  final firestoreDatabase = FirebaseFirestore.instance;
+  firestoreDatabase.settings = const Settings(persistenceEnabled: true);
+
   setupContent();
 
   runApp(MaterialApp(
@@ -45,9 +49,9 @@ void main() async {
           PointerDeviceKind.unknown,
         },
       ),
-      home: const Dashboard(),
+      home: Dashboard(firebaseFirestore: firestoreDatabase),
       routes: <String, WidgetBuilder> {
-        '/Home': (BuildContext context) => const Dashboard()
+        '/Home': (BuildContext context) => Dashboard(firebaseFirestore: firestoreDatabase)
         // '/Product': (BuildContext context) => const Product(productId: '')
       },
       onGenerateRoute: (routeSettings) {
@@ -78,7 +82,7 @@ void main() async {
             settings: settings,
             builder: (BuildContext context) {
 
-              return const Dashboard();
+              return Dashboard(firebaseFirestore: firestoreDatabase);
             }
         );
       }

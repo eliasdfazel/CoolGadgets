@@ -11,7 +11,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Magazine extends StatefulWidget {
 
-  const Magazine({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Magazine({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Magazine> createState() => MagazineState();
@@ -44,7 +46,7 @@ class MagazineState extends State<Magazine> {
         children: const []
     );
 
-    retrieveMagazine();
+    retrieveMagazine(widget.firebaseFirestore);
 
   }
 
@@ -73,7 +75,7 @@ class MagazineState extends State<Magazine> {
     );
   }
 
-  Future retrieveMagazine() async {
+  Future retrieveMagazine(FirebaseFirestore firebaseFirestore) async {
 
     List<Widget> allMagazine = [];
 
@@ -96,7 +98,7 @@ class MagazineState extends State<Magazine> {
 
     });
 
-    FirebaseFirestore.instance.collection(endpoints.magazineCollection())
+    firebaseFirestore.collection(endpoints.magazineCollection())
         .get(getOptions).then((querySnapshot) async {
 
           for (var element in querySnapshot.docs) {

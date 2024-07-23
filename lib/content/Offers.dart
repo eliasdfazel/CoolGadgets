@@ -10,7 +10,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Offers extends StatefulWidget {
 
-  const Offers({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Offers({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Offers> createState() => OffersState();
@@ -43,7 +45,7 @@ class OffersState extends State<Offers> {
         children: const []
     );
 
-    retrieveOffers();
+    retrieveOffers(widget.firebaseFirestore);
 
   }
 
@@ -72,7 +74,7 @@ class OffersState extends State<Offers> {
     );
   }
 
-  Future retrieveOffers() async {
+  Future retrieveOffers(FirebaseFirestore firebaseFirestore) async {
 
     List<Widget> allOffers = [];
 
@@ -95,7 +97,7 @@ class OffersState extends State<Offers> {
 
     });
 
-    FirebaseFirestore.instance.collection(endpoints.offersCollection())
+    firebaseFirestore.collection(endpoints.offersCollection())
         .orderBy(OffersDataStructure.offerIndex)
         .get(getOptions).then((querySnapshot) {
 

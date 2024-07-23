@@ -1,5 +1,6 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:blur/blur.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/dashboard/ui/Dashboard.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
@@ -10,8 +11,9 @@ import 'package:url_launcher/url_launcher.dart';
 class Header extends StatefulWidget {
 
   DashboardState dashboardState;
+  FirebaseFirestore firebaseFirestore;
 
-  Header({Key? key, required this.dashboardState}) : super(key: key);
+  Header({Key? key, required this.dashboardState, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Header> createState() => HeaderState();
@@ -137,7 +139,7 @@ class HeaderState extends State<Header> {
                                           splashFactory: InkRipple.splashFactory,
                                           onTap: () {
 
-                                            widget.dashboardState.prepareContent();
+                                            widget.dashboardState.prepareContent(widget.firebaseFirestore);
 
                                           },
                                           child: Align(

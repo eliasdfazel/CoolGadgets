@@ -13,7 +13,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Brands extends StatefulWidget {
 
-  const Brands({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Brands({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Brands> createState() => BrandsState();
@@ -43,7 +45,7 @@ class BrandsState extends State<Brands> {
 
     brandsPlaceholder = initialBrands();
 
-    retrieveBrands();
+    retrieveBrands(widget.firebaseFirestore);
 
   }
 
@@ -195,7 +197,7 @@ class BrandsState extends State<Brands> {
     );
   }
 
-  Future retrieveBrands() async {
+  Future retrieveBrands(FirebaseFirestore firebaseFirestore) async {
 
     List<Widget> allBrands = [];
 
@@ -218,7 +220,7 @@ class BrandsState extends State<Brands> {
 
     });
 
-    FirebaseFirestore.instance.collection(endpoints.brandsCollection())
+    firebaseFirestore.collection(endpoints.brandsCollection())
         .orderBy(BrandsDataStructure.categoryIndex, descending: true)
         .get(getOptions).then((querySnapshot) {
 

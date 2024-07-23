@@ -1,4 +1,5 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/content/Content.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/Header.dart';
 import 'package:cool_gadgets/dashboard/ui/sections/Menus.dart';
@@ -11,7 +12,9 @@ import 'package:flutter/services.dart';
 
 class Dashboard extends StatefulWidget {
 
-  const Dashboard({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Dashboard({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Dashboard> createState() => DashboardState();
@@ -106,7 +109,7 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               /*
                * Start - Content
                */
-              prepareContent(),
+              prepareContent(widget.firebaseFirestore),
               /*
                * End - Content
                */
@@ -116,7 +119,7 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
     );
   }
 
-  Widget prepareContent() {
+  Widget prepareContent(FirebaseFirestore firebaseFirestore) {
 
     return SlideTransition(
         position: menuOffsetAnimation,
@@ -137,14 +140,14 @@ class DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                               width: 0
                           )
                       ),
-                      child: const Content()
+                      child: Content(firebaseFirestore: firebaseFirestore)
                   ),
                   /* End - Content */
 
                   /* Start - Header */
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Header(dashboardState: this)
+                    child: Header(dashboardState: this, firebaseFirestore: widget.firebaseFirestore)
                   ),
                   /* End - Header */
 

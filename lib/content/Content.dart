@@ -1,4 +1,5 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/content/Associates.dart';
 import 'package:cool_gadgets/content/Brands.dart';
 import 'package:cool_gadgets/content/Magazine.dart';
@@ -11,7 +12,9 @@ import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 
 class Content extends StatefulWidget {
 
-  const Content({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Content({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Content> createState() => ContentState();
@@ -67,19 +70,19 @@ class ContentState extends State<Content> {
                 physics: const RangeMaintainingScrollPhysics(),
                 children: [
 
-                  const Brands(),
+                  Brands(firebaseFirestore: widget.firebaseFirestore),
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  const Offers(),
+                  Offers(firebaseFirestore: widget.firebaseFirestore),
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  const Categories(),
+                  Categories(firebaseFirestore: widget.firebaseFirestore),
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  const Magazine(),
+                  Magazine(firebaseFirestore: widget.firebaseFirestore),
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 

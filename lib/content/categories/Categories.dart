@@ -10,7 +10,9 @@ import 'package:get/get.dart';
 
 class Categories extends StatefulWidget {
 
-  const Categories({Key? key}) : super(key: key);
+  FirebaseFirestore firebaseFirestore;
+
+  Categories({Key? key, required this.firebaseFirestore}) : super(key: key);
 
   @override
   State<Categories> createState() => CategoriesState();
@@ -50,7 +52,7 @@ class CategoriesState extends State<Categories> {
         children: const []
     );
 
-    retrieveCategories();
+    retrieveCategories(widget.firebaseFirestore);
 
   }
 
@@ -75,7 +77,7 @@ class CategoriesState extends State<Categories> {
     );
   }
 
-  void retrieveCategories() {
+  void retrieveCategories(FirebaseFirestore firebaseFirestore) {
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 
@@ -96,7 +98,7 @@ class CategoriesState extends State<Categories> {
 
     });
 
-    FirebaseFirestore.instance.collection(endpoints.categoriesCollection())
+    firebaseFirestore.collection(endpoints.categoriesCollection())
         .orderBy(CategoriesDataStructure.categoryIndex)
         .get(getOptions).then((querySnapshot) {
 
