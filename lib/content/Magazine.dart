@@ -38,7 +38,6 @@ class MagazineState extends State<Magazine> {
   @override
   void initState() {
     super.initState();
-    debugPrint('Loading Magazine');
 
     BackButtonInterceptor.add(aInterceptor);
 
@@ -77,6 +76,7 @@ class MagazineState extends State<Magazine> {
   }
 
   Future retrieveMagazine(FirebaseFirestore firebaseFirestore) async {
+    debugPrint('Loading Magazine');
 
     List<Widget> allMagazine = [];
 

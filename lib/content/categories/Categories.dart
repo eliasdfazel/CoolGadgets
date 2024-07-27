@@ -35,7 +35,6 @@ class CategoriesState extends State<Categories> {
   @override
   void initState() {
     super.initState();
-    debugPrint('Loading Categories');
 
     BackButtonInterceptor.add(aInterceptor);
 
@@ -79,6 +78,7 @@ class CategoriesState extends State<Categories> {
   }
 
   void retrieveCategories(FirebaseFirestore firebaseFirestore) {
+    debugPrint('Loading Categories');
 
     GetOptions getOptions = const GetOptions(source: Source.server);
 

@@ -37,7 +37,6 @@ class OffersState extends State<Offers> {
   @override
   void initState() {
     super.initState();
-    debugPrint('Loading Offers');
 
     BackButtonInterceptor.add(aInterceptor);
 
@@ -76,6 +75,7 @@ class OffersState extends State<Offers> {
   }
 
   Future retrieveOffers(FirebaseFirestore firebaseFirestore) async {
+    debugPrint('Loading Offers');
 
     List<Widget> allOffers = [];
 

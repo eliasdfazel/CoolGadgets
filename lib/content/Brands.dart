@@ -40,7 +40,6 @@ class BrandsState extends State<Brands> {
   @override
   void initState() {
     super.initState();
-    debugPrint('Loading Brands');
 
     BackButtonInterceptor.add(aInterceptor);
 
@@ -144,6 +143,7 @@ class BrandsState extends State<Brands> {
   }
 
   Widget initialBrands() {
+    debugPrint('Loading Brands');
 
     List<Widget> previewItems = [];
 
