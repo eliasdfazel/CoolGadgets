@@ -243,44 +243,44 @@ class CategoryItemState extends State<CategoryItem> {
 
           },
           child: SizedBox(
-            height: 201,
-            width: 201,
+            height: 193,
+            width: 193,
             child: Stack(
                 children: [
 
                   SizedBox(
-                    height: 201,
-                    width: 201,
+                    height: 193,
+                    width: 193,
                     child: ShapedImage(
                       imageTye: ImageType.NETWORK,
                       path: productDataStructure.productImage(),
                       shape: Shape.Rectarcle,
-                      height: 201,
-                      width: 201,
+                      height: 193,
+                      width: 193,
                       boxFit: BoxFit.cover,
                     )
                   ),
 
                   SizedBox(
-                      height: 201,
-                      width: 201,
+                      height: 193,
+                      width: 193,
                       child: ShapedImage(
                         imageTye: ImageType.ASSET,
                         path: 'images/gradient.png',
                         shape: Shape.Rectarcle,
-                        height: 201,
-                        width: 201,
+                        height: 193,
+                        width: 193,
                         boxFit: BoxFit.cover,
                         color: widget.categoriesDataStructure.categoryColorValue(),
                       )
                   ),
 
                   Container(
-                      width: 201,
+                      width: 193,
                       padding: const EdgeInsets.only(left: 19, right: 19, bottom: 23),
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
-                          width: 201,
+                          width: 193,
                           child: Text(
                               productDataStructure.productName().split("-").first,
                               textAlign: TextAlign.left,
