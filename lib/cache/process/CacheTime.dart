@@ -1,4 +1,5 @@
 import 'package:cool_gadgets/cache/io/CacheIO.dart';
+import 'package:flutter/cupertino.dart';
 
 class CacheTime extends CacheIO {
 
@@ -22,6 +23,7 @@ class CacheTime extends CacheIO {
     int storedTime = await retrieve(contentId);
 
     int deltaTime = DateTime.now().millisecondsSinceEpoch - storedTime;
+    debugPrint('Stored Time: $storedTime 🔺 Delta Time: $deltaTime');
 
     return (deltaTime < daysSevenMilliseconds);
   }

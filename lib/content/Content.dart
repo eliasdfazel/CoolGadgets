@@ -61,7 +61,7 @@ class ContentState extends State<Content> {
       children: [
 
         Opacity(
-            opacity: 0.73,
+            opacity: 0.51,
             child: Image.asset(
               'images/elements.png',
               height: double.maxFinite,
