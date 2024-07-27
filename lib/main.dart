@@ -18,7 +18,7 @@ void main() async {
   );
 
   await FirebaseAppCheck.instance.activate(
-      webProvider: ReCaptchaEnterpriseProvider(Privates.reCaptchEnterpriseSiteKey)
+      webProvider: ReCaptchaV3Provider(Privates.reCaptchEnterpriseSiteKey)
   );
 
   FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
