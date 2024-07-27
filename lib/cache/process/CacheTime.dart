@@ -21,9 +21,9 @@ class CacheTime extends CacheIO {
     // 7 Days = 604800000
     int daysSevenMilliseconds = (86400000 * dayNumber);
 
-    int storedTime = await retrieve(contentId);
+    int storedTime = (await retrieve(contentId)).abs();
 
-    int deltaTime = DateTime.now().millisecondsSinceEpoch - storedTime;
+    int deltaTime = (DateTime.now().millisecondsSinceEpoch - storedTime).abs();
     debugPrint('Stored Time: $storedTime 🔺 Delta Time: $deltaTime');
 
     return (deltaTime < daysSevenMilliseconds);
