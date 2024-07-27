@@ -18,6 +18,7 @@ class CacheTime extends CacheIO {
 
   Future<bool> afterTime(String contentId, {int dayNumber = 7}) async {
 
+    // 7 Days = 604800000
     int daysSevenMilliseconds = (86400000 * dayNumber);
 
     int storedTime = await retrieve(contentId);
