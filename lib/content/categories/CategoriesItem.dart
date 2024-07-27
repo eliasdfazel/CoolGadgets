@@ -66,7 +66,7 @@ class CategoryItemState extends State<CategoryItem> {
 
     return SizedBox(
       height: 357,
-      width: 356,
+      width: 357,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(19),
         child: Container(
@@ -74,7 +74,7 @@ class CategoryItemState extends State<CategoryItem> {
             color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.377)
           ),
           child: Padding(
-            padding: const EdgeInsets.all(7),
+            padding: const EdgeInsets.all(13),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -243,32 +243,32 @@ class CategoryItemState extends State<CategoryItem> {
 
           },
           child: SizedBox(
-            height: 246,
+            height: 201,
             width: 201,
             child: Stack(
                 children: [
 
                   SizedBox(
-                    height: 246,
+                    height: 201,
                     width: 201,
                     child: ShapedImage(
                       imageTye: ImageType.NETWORK,
                       path: productDataStructure.productImage(),
                       shape: Shape.Rectarcle,
-                      height: 246,
+                      height: 201,
                       width: 201,
                       boxFit: BoxFit.cover,
                     )
                   ),
 
                   SizedBox(
-                      height: 246,
+                      height: 201,
                       width: 201,
                       child: ShapedImage(
                         imageTye: ImageType.ASSET,
                         path: 'images/gradient.png',
                         shape: Shape.Rectarcle,
-                        height: 246,
+                        height: 201,
                         width: 201,
                         boxFit: BoxFit.cover,
                         color: widget.categoriesDataStructure.categoryColorValue(),
