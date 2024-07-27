@@ -39,11 +39,11 @@ class ContentState extends State<Content> {
 
     BackButtonInterceptor.add(aInterceptor);
 
-    brandsContainer = Brands(firebaseFirestore: widget.firebaseFirestore);
+    categoriesContainer = Categories(firebaseFirestore: widget.firebaseFirestore);
 
     offersContainer = Offers(firebaseFirestore: widget.firebaseFirestore);
 
-    categoriesContainer = Categories(firebaseFirestore: widget.firebaseFirestore);
+    brandsContainer = Brands(firebaseFirestore: widget.firebaseFirestore);
 
     magazineContainer = Magazine(firebaseFirestore: widget.firebaseFirestore);
 

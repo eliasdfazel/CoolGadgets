@@ -108,32 +108,29 @@ class BrandsState extends State<Brands> {
             ),
 
             SizedBox(
-                height: 79,
-                child: Padding(
-                    padding: const EdgeInsets.only(top: 0),
-                    child: Container(
-                        constraints: const BoxConstraints(minHeight: 79, maxWidth: 1024),
-                        decoration: BoxDecoration(
-                            border: const Border.symmetric(
-                                vertical: BorderSide(
-                                    color: ColorsResources.premiumLight,
-                                    width: 5,
-                                    style: BorderStyle.solid
-                                ),
-                                horizontal: BorderSide(
-                                    color: ColorsResources.premiumLight,
-                                    width: 1,
-                                    style: BorderStyle.solid
-                                )
+                height: 97,
+                child: Container(
+                    constraints: const BoxConstraints(minHeight: 97, maxWidth: 1024),
+                    decoration: BoxDecoration(
+                        border: const Border.symmetric(
+                            vertical: BorderSide(
+                                color: ColorsResources.premiumLight,
+                                width: 5,
+                                style: BorderStyle.solid
                             ),
-                            borderRadius: BorderRadius.circular(19)
-                        ),
-                        child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(19),
-                              child: brandsPlaceholder
+                            horizontal: BorderSide(
+                                color: ColorsResources.premiumLight,
+                                width: 1,
+                                style: BorderStyle.solid
                             )
+                        ),
+                        borderRadius: BorderRadius.circular(19)
+                    ),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(19),
+                            child: brandsPlaceholder
                         )
                     )
                 )
@@ -165,16 +162,13 @@ class BrandsState extends State<Brands> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 11),
           child: SizedBox(
-            height: 51,
-            width: 51,
-            child: Opacity(
-              opacity: (0.73 - i/10),
-              child: Image.asset(
-                'images/squarcle.png',
-                height: 51,
-                width: 51,
-                color: previewColors[i],
-              )
+            height: 73,
+            width: 73,
+            child: Image.asset(
+              'images/squarcle.png',
+              height: 73,
+              width: 73,
+              color: previewColors[i],
             )
           )
         )
@@ -265,12 +259,12 @@ class BrandsState extends State<Brands> {
                 
               },
               child: SizedBox(
-                  height: 51,
-                  width: 51,
+                  height: 73,
+                  width: 73,
                   child: Image.network(
                       brandsDataStructure.brandImageValue(),
-                      height: 51,
-                      width: 51
+                      height: 73,
+                      width: 73
                   )
               )
             )
