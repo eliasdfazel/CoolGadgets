@@ -21,6 +21,11 @@ class Content extends StatefulWidget {
 }
 class ContentState extends State<Content> {
 
+  Widget brandsContainer = Container();
+  Widget offersContainer = Container();
+  Widget categoriesContainer = Container();
+  Widget magazineContainer = Container();
+
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
     SystemNavigator.pop();
@@ -33,6 +38,15 @@ class ContentState extends State<Content> {
     super.initState();
 
     BackButtonInterceptor.add(aInterceptor);
+
+    brandsContainer = Brands(firebaseFirestore: widget.firebaseFirestore);
+
+    offersContainer = Offers(firebaseFirestore: widget.firebaseFirestore);
+
+    categoriesContainer = Categories(firebaseFirestore: widget.firebaseFirestore);
+
+    magazineContainer = Magazine(firebaseFirestore: widget.firebaseFirestore);
+
   }
 
   @override
@@ -50,7 +64,7 @@ class ContentState extends State<Content> {
       children: [
 
         Opacity(
-            opacity: 1.0,
+            opacity: 0.73,
             child: Image.asset(
               'images/elements.png',
               height: double.maxFinite,
@@ -70,19 +84,19 @@ class ContentState extends State<Content> {
                 physics: const RangeMaintainingScrollPhysics(),
                 children: [
 
-                  Brands(firebaseFirestore: widget.firebaseFirestore),
+                  brandsContainer,
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Offers(firebaseFirestore: widget.firebaseFirestore),
+                  offersContainer,
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Categories(firebaseFirestore: widget.firebaseFirestore),
+                  categoriesContainer,
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  Magazine(firebaseFirestore: widget.firebaseFirestore),
+                  magazineContainer,
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
