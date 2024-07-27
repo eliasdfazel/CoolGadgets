@@ -37,6 +37,7 @@ class OffersState extends State<Offers> {
   @override
   void initState() {
     super.initState();
+    debugPrint('Loading Offers');
 
     BackButtonInterceptor.add(aInterceptor);
 

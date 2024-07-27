@@ -35,6 +35,7 @@ class CategoriesState extends State<Categories> {
   @override
   void initState() {
     super.initState();
+    debugPrint('Loading Categories');
 
     BackButtonInterceptor.add(aInterceptor);
 

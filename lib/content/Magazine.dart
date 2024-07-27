@@ -38,6 +38,7 @@ class MagazineState extends State<Magazine> {
   @override
   void initState() {
     super.initState();
+    debugPrint('Loading Magazine');
 
     BackButtonInterceptor.add(aInterceptor);
 

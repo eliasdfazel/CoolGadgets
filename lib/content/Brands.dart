@@ -40,6 +40,7 @@ class BrandsState extends State<Brands> {
   @override
   void initState() {
     super.initState();
+    debugPrint('Loading Brands');
 
     BackButtonInterceptor.add(aInterceptor);
 
