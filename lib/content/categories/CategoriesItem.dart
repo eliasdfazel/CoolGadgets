@@ -86,7 +86,7 @@ class CategoryItemState extends State<CategoryItem> {
                     height: 111,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
-                        color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.51)
+                        color: widget.categoriesDataStructure.categoryColorValue().withOpacity(0.73)
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
