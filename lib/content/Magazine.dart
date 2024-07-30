@@ -4,6 +4,7 @@ import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/data/MagazineDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
@@ -151,8 +152,9 @@ class MagazineState extends State<Magazine> {
                             width: 301,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(19),
-                              child: Image.network(
-                                magazineDataStructure.magazineImage(),
+                              child: FastCachedImage(
+                                url: magazineDataStructure.magazineImage(),
+                                fadeInDuration: const Duration(milliseconds: 555),
                                 height: 179,
                                 width: 301,
                                 fit: BoxFit.cover,
