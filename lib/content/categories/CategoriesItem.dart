@@ -8,6 +8,7 @@ import 'package:cool_gadgets/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
+import 'package:cool_gadgets/utils/calculations/colors.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +36,8 @@ class CategoryItemState extends State<CategoryItem> {
 
   Widget keywordsPlaceholder = Container();
 
+  Color textColor = ColorsResources.premiumLight;
+
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
     SystemNavigator.pop();
@@ -50,6 +53,8 @@ class CategoryItemState extends State<CategoryItem> {
     BackButtonInterceptor.add(aInterceptor);
 
     retrieveProducts();
+
+    textColor = calculateTextColor(widget.categoriesDataStructure.categoryColorValue());
 
   }
 
@@ -114,9 +119,9 @@ class CategoryItemState extends State<CategoryItem> {
                                   widget.categoriesDataStructure.categoryNameValue().replaceAll("Cool Gadgets ", ""),
                                   textAlign: TextAlign.start,
                                   maxLines: 1,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontSize: 23,
-                                      color: ColorsResources.premiumLight
+                                      color: textColor
                                   )
                               )
                             )
