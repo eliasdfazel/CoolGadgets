@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_gadgets/cache/process/CacheTime.dart';
 import 'package:cool_gadgets/data/OffersDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
@@ -143,8 +144,9 @@ class OffersState extends State<Offers> {
                 child: SizedBox(
                     height: 146,
                     width: 356,
-                    child: Image.network(
-                        offersDataStructure.offerImageValue(),
+                    child: FastCachedImage(
+                        url: offersDataStructure.offerImageValue(),
+                        fadeInDuration: const Duration(milliseconds: 555),
                         height: 146,
                         width: 356
                     )

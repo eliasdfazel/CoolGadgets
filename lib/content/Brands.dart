@@ -6,6 +6,7 @@ import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
 import 'package:cool_gadgets/utils/calculations/display.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
@@ -262,8 +263,9 @@ class BrandsState extends State<Brands> {
               child: SizedBox(
                   height: 73,
                   width: 73,
-                  child: Image.network(
-                      brandsDataStructure.brandImageValue(),
+                  child: FastCachedImage(
+                      url: brandsDataStructure.brandImageValue(),
+                      fadeInDuration: const Duration(milliseconds: 555),
                       height: 73,
                       width: 73
                   )
