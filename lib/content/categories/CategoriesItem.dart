@@ -9,11 +9,11 @@ import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/utils/calculations/colors.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:shaped_image/shaped_image.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -244,27 +244,34 @@ class CategoryItemState extends State<CategoryItem> {
                   SizedBox(
                     height: 193,
                     width: 193,
-                    child: ShapedImage(
-                      imageTye: ImageType.NETWORK,
-                      path: productDataStructure.productImage(),
-                      shape: Shape.Rectarcle,
-                      height: 193,
-                      width: 193,
-                      boxFit: BoxFit.cover,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(17),
+                      child: FastCachedImage(
+                        url: productDataStructure.productImage(),
+                        fadeInDuration: const Duration(milliseconds: 555),
+                        height: 193,
+                        width: 193,
+                        fit: BoxFit.cover,
+                      )
                     )
                   ),
 
                   SizedBox(
                       height: 193,
                       width: 193,
-                      child: ShapedImage(
-                        imageTye: ImageType.ASSET,
-                        path: 'images/gradient.png',
-                        shape: Shape.Rectarcle,
-                        height: 193,
-                        width: 193,
-                        boxFit: BoxFit.cover,
-                        color: widget.categoriesDataStructure.categoryColorValue(),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(17),
+                          gradient: LinearGradient(
+                            colors: [
+                              widget.categoriesDataStructure.categoryColorValue(),
+                              ColorsResources.transparent
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            stops: const [0.1, 1.0]
+                          )
+                        ),
                       )
                   ),
 

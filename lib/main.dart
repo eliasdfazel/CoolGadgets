@@ -4,6 +4,7 @@ import 'package:cool_gadgets/firebase_options.dart';
 import 'package:cool_gadgets/resources/private/Privates.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/resources/public/strings_resources.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,7 +18,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await FirebaseAppCheck.instance.activate(
+  FirebaseAppCheck.instance.activate(
       webProvider: ReCaptchaV3Provider(Privates.reCaptchEnterpriseSiteKey)
   );
 
@@ -25,6 +26,8 @@ void main() async {
 
   final firestoreDatabase = FirebaseFirestore.instance;
   firestoreDatabase.settings = const Settings(persistenceEnabled: true);
+
+  await FastCachedImageConfig.init(clearCacheAfter: const Duration(days: 19));
 
   setupContent();
 

@@ -27,6 +27,8 @@ dependencies:
 
 
   ####### ####### #######
+  fast_cached_network_image: ^1.2.9
+
   firebase_core: ^3.1.0
 
   firebase_admin: ^0.2.0
