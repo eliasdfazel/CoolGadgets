@@ -218,18 +218,6 @@ class CategoryItemState extends State<CategoryItem> {
   Widget productsItem(ProductDataStructure productDataStructure) {
     debugPrint('Brand: ${productDataStructure.productBrand()} - Product: ${productDataStructure.productName()}');
 
-    Color textColor = ColorsResources.white;
-
-    if (widget.categoriesDataStructure.categoryColorValue() == Colors.black) {
-
-      textColor = ColorsResources.premiumLight;
-
-    } else {
-
-      textColor = ColorsResources.premiumDark;
-
-    }
-
     return Container(
       padding: const EdgeInsets.only(top: 17, bottom: 17, right: 19),
       alignment: Alignment.center,

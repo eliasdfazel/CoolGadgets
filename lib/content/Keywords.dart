@@ -3,7 +3,6 @@ import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cool_gadgets/data/Analytics.dart';
 import 'package:cool_gadgets/data/ProductDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
-import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:cool_gadgets/utils/calculations/colors.dart';
 import 'package:cool_gadgets/utils/operations/CollectionsUtils.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -29,8 +28,6 @@ class KeywordsState extends State<Keywords> {
 
   Widget allKeywords = ListView();
 
-  Color textColor = ColorsResources.premiumLight;
-
   bool aInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 
     SystemNavigator.pop();
@@ -48,8 +45,6 @@ class KeywordsState extends State<Keywords> {
     allKeywords = ListView();
 
     prepareKeywords();
-
-    textColor = calculateTextColor(widget.categoryColor);
 
   }
 
@@ -139,7 +134,7 @@ class KeywordsState extends State<Keywords> {
                       productDataStructure.productKeyword(),
                       style: TextStyle(
                         fontSize: 12,
-                        color: textColor,
+                        color: calculateTextColor(widget.categoryColor),
                         letterSpacing: 1.73
                       ),
                     )
