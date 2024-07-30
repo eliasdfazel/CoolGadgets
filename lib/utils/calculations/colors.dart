@@ -5,3 +5,9 @@ Color calculateTextColor(Color inputColor) {
 
   return inputColor.computeLuminance() >= 0.5 ? ColorsResources.premiumDark : ColorsResources.premiumLight;
 }
+
+/// Dark = True - Light = False
+bool isDarkLight(Color inputColor) {
+
+  return (inputColor.computeLuminance() >= 0.5);
+}
