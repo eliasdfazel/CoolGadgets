@@ -589,4 +589,13 @@ void setupContent() async {
   StringsResources.title12539;
   StringsResources.description12539;
 
+  StringsResources.titleAmazonPrime;
+  StringsResources.descriptionAmazonPrime;
+
+  StringsResources.titleLightWeightHeadset;
+  StringsResources.descriptionLightWeightHeadset;
+
+  StringsResources.titleVPN;
+  StringsResources.descriptionVPN;
+
 }

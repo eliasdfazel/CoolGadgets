@@ -418,6 +418,14 @@ class StringsResources {
   static String title16559 = "Air Compression Foot Massager - Deep Kneading Therapy - Massage with Soothing Heat - Improve Blood Circulation - Foot Wellness, Relax";
   static String description16559 = "<h2><a href=\https://amzn.to/4eo6q6B\>Air Compression Foot Massager with Soothing Heat</a></h2>\n<p><span class=\a-list-item\><a href=\https://geeksempire.co/cool-gadgets-for/#cool-gadgets-for-women-and-girls-and-her\>BUILT IN AIR COMPRESSION TECHNOLOGY</a>: It has 2 adjustable intensity levels which will boost the blood circulation on your soles and feet. It works better when combined with the deep kneading Shiatsu foot massage to strengthen muscle tissues and reduce muscle stiffness allowing you to fully unwind after a busy day </span></p>\n<p>&nbsp;</p>\n<figure style=\width: 1200px\ class=\wp-caption aligncenter\><img src=\https://m.media-amazon.com/images/I/81nZbRSeqbL._AC_SL1500_.jpg\ alt=\Air Compression Foot Massager - Deep Kneading Therapy - Massage with Soothing Heat - Improve Blood Circulation - Foot Wellness, Relax\ width=\1200\ height=\1500\ /><figcaption class=\wp-caption-text\>Air Compression Foot Massager &#8211; Deep Kneading Therapy &#8211; Massage with Soothing Heat &#8211; Improve Blood Circulation &#8211; Foot Wellness, Relax</figcaption></figure>\n";
 
+  static String titleAmazonPrime = 'Amazon Prime - Free 30 Days';
+  static String descriptionAmazonPrime = 'Amazon Prime Fast Free Delivery - Award-Winning TV - Exclusive Deals';
+
+  static String titleLightWeightHeadset = 'Best Lightweight Wireless Gaming Headset';
+  static String descriptionLightWeightHeadset = 'A wireless gaming headset is a pair of headphones specifically designed for gaming that connects to your gaming console or PC without the use of wires. It typically includes a microphone for in-game communication.';
+
+  static String titleVPN = 'The Best VPN For All Platforms, VPN for Android, VPN for iPhone, VPN for Playstation, VPN for TV';
+  static String descriptionVPN = 'Why do I need a VPN? No one likes to be watched or tracked – even if they have nothing to hide. That’s why it is important you step up your privacy game.';
   /*
    * End - Content
    */
