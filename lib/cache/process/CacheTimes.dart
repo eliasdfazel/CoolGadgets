@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 class CacheTime extends CacheIO {
 
-  void store(String contentId, String contentValue) {
+  void store(String contentId, String contentValue) async {
 
     storeContent(contentId, contentValue);
 

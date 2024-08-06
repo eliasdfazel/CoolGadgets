@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:cool_gadgets/cache/process/CacheProducts.dart';
+import 'package:cool_gadgets/cache/process/CacheTimes.dart';
 import 'package:cool_gadgets/content/Keywords.dart';
 import 'package:cool_gadgets/data/Analytics.dart';
 import 'package:cool_gadgets/data/CategoriesDataStructure.dart';
@@ -28,6 +30,10 @@ class CategoryItem extends StatefulWidget {
   State<CategoryItem> createState() => CategoryItemState();
 }
 class CategoryItemState extends State<CategoryItem> {
+
+  CacheTime cacheTime = CacheTime();
+
+  CacheProducts cacheProducts = CacheProducts();
 
   Endpoints endpoints = Endpoints();
 
@@ -162,14 +168,44 @@ class CategoryItemState extends State<CategoryItem> {
 
   void retrieveProducts() async {
 
-    final productResponse = await http.get(Uri.parse(endpoints.productsByCategory(widget.categoriesDataStructure.categoryIdValue(), "1")),
-        headers: {
-          "Authorization": Privates.authenticationAPI
+    cacheProducts.retrieve(widget.categoriesDataStructure.categoryIdValue()).then((value) async {
+
+      if (value.isNotEmpty) {
+        debugPrint('Category ${widget.categoriesDataStructure.categoryIdValue()} Cached Products - Restored');
+
+        final productsJson = List.from(jsonDecode(value));
+
+        prepareProducts(productsJson);
+
+        cacheTime.afterTime('Category${widget.categoriesDataStructure.categoryIdValue()}', dayNumber: 5).then((value) {
+
+          if (value) {
+
+            cacheProducts.store(widget.categoriesDataStructure.categoryIdValue(), '');
+
+          }
+
         });
 
-    final productsJson = List.from(jsonDecode(productResponse.body));
+      } else {
 
-    prepareProducts(productsJson);
+        final productResponse = await http.get(Uri.parse(endpoints.productsByCategory(widget.categoriesDataStructure.categoryIdValue(), "1")),
+            headers: {
+              "Authorization": Privates.authenticationAPI
+            });
+
+        cacheProducts.store(widget.categoriesDataStructure.categoryIdValue(), productResponse.body);
+        debugPrint('Category ${widget.categoriesDataStructure.categoryIdValue()} Cached Products - Stored');
+
+        cacheTime.store('Category${widget.categoriesDataStructure.categoryIdValue()}', DateTime.now().microsecondsSinceEpoch.toString());
+
+        final productsJson = List.from(jsonDecode(productResponse.body));
+
+        prepareProducts(productsJson);
+
+      }
+
+    });
 
   }
 
@@ -314,7 +350,7 @@ class CategoryItemState extends State<CategoryItem> {
 
                                               Share.share('${productDataStructure.productName()}\n'
                                                   '${productDataStructure.productLink()}\n\n'
-                                                  '${productDataStructure.productHashtags()}');
+                                                  '${productDataStructure.productHashtags()}', subject: productDataStructure.productName());
 
                                             },
                                             child: Align(

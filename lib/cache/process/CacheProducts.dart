@@ -1,20 +1,18 @@
-import 'dart:convert';
-
 import 'package:cool_gadgets/cache/io/CacheIO.dart';
 
-class Cacheproducts extends CacheIO {
+class CacheProducts extends CacheIO {
 
-  void store(contentId, productsJson) {
+  void store(contentId, productsJson) async {
 
-    storeContent(contentId, jsonEncode(productsJson));
+    storeContent(contentId, (productsJson));
 
   }
 
-  Future<dynamic> retrieve(String contentId) async {
+  Future<String> retrieve(String contentId) async {
 
-    String storedProductsJson = await retrieveContent(contentId) ?? '{}';
+    String storedProductsJson = await retrieveContent(contentId) ?? '';
 
-    return jsonDecode(storedProductsJson);
+    return storedProductsJson;
   }
 
 }
