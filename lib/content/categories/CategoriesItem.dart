@@ -304,8 +304,7 @@ class CategoryItemState extends State<CategoryItem> {
 
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                    alignment: Alignment.bottomRight,
+                                child: Padding(
                                     padding: const EdgeInsets.only(bottom: 13),
                                     child: SizedBox(
                                         height: 37,
@@ -318,10 +317,13 @@ class CategoryItemState extends State<CategoryItem> {
                                                   '${productDataStructure.productHashtags()}');
 
                                             },
-                                            child: Image.asset(
-                                              'images/share.png',
-                                              height: 37,
-                                              width: 37,
+                                            child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: Image.asset(
+                                                'images/share.png',
+                                                height: 37,
+                                                width: 37,
+                                              )
                                             )
                                         )
                                     )
