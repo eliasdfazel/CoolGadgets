@@ -58,7 +58,7 @@ class ProductDataStructure {
 
   String productHashtags() {
 
-    String extraWord = 'with,and,or,a,';
+    String extraWord = 'with,and,or,a,an';
 
     String hashtagKeyword = '#GeeksEmpire';
 
