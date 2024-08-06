@@ -278,45 +278,60 @@ class CategoryItemState extends State<CategoryItem> {
 
                   Container(
                       width: 193,
-                      padding: const EdgeInsets.only(left: 19, right: 19, bottom: 23),
+                      padding: const EdgeInsets.only(left: 19, right: 13, bottom: 23),
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                           width: 193,
-                          child: Text(
-                              productDataStructure.productName().split("-").first,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: textColor,
-                                  letterSpacing: 1.37,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold
+                          child: Row(
+                            children: [
+
+                              Expanded(
+                                flex: 3,
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                      productDataStructure.productName().split("-").first,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          color: textColor,
+                                          letterSpacing: 1.37,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold
+                                      )
+                                  )
+                                )
+                              ),
+
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                    alignment: Alignment.bottomRight,
+                                    padding: const EdgeInsets.only(bottom: 13),
+                                    child: SizedBox(
+                                        height: 37,
+                                        width: 37,
+                                        child: InkWell(
+                                            onTap: () async {
+
+                                              Share.share('${productDataStructure.productName()}\n'
+                                                  '${productDataStructure.productLink()}\n\n'
+                                                  '${productDataStructure.productHashtags()}');
+
+                                            },
+                                            child: Image.asset(
+                                              'images/share.png',
+                                              height: 37,
+                                              width: 37,
+                                            )
+                                        )
+                                    )
+                                ),
                               )
+
+                            ]
                           )
                       )
                   ),
-
-                  Container(
-                    alignment: Alignment.topRight,
-                    padding: const EdgeInsets.only(bottom: 13, right: 13),
-                    child: SizedBox(
-                      height: 37,
-                      width: 37,
-                      child: InkWell(
-                        onTap: () async {
-
-                          Share.share('${productDataStructure.productName()}\n'
-                              '${productDataStructure.productLink()}\n\n'
-                              '${productDataStructure.productHashtags()}');
-
-                        },
-                        child: Image.asset(
-                          'images/share.png',
-                          height: 37,
-                          width: 37,
-                        )
-                      )
-                    )
-                  )
 
                 ]
             )
