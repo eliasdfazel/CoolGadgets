@@ -1,6 +1,6 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cool_gadgets/cache/process/CacheTime.dart';
+import 'package:cool_gadgets/cache/process/CacheTimes.dart';
 import 'package:cool_gadgets/data/MagazineDataStructure.dart';
 import 'package:cool_gadgets/endpoints/Endpoints.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
