@@ -14,6 +14,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -292,6 +293,29 @@ class CategoryItemState extends State<CategoryItem> {
                               )
                           )
                       )
+                  ),
+
+                  Container(
+                    alignment: Alignment.topRight,
+                    padding: const EdgeInsets.only(bottom: 13, right: 13),
+                    child: SizedBox(
+                      height: 37,
+                      width: 37,
+                      child: InkWell(
+                        onTap: () async {
+
+                          Share.share('${productDataStructure.productName()}\n'
+                              '${productDataStructure.productLink()}\n\n'
+                              '${productDataStructure.productHashtags()}');
+
+                        },
+                        child: Image.asset(
+                          'images/share.png',
+                          height: 37,
+                          width: 37,
+                        )
+                      )
+                    )
                   )
 
                 ]

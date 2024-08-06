@@ -56,4 +56,17 @@ class ProductDataStructure {
     return productBrand;
   }
 
+  String productHashtags() {
+
+    String hashtagKeyword = '#GeeksEmpire';
+
+    productName().split('-').first.split(' ').forEach((element) {
+
+      hashtagKeyword += ' #$element';
+
+    });
+
+    return hashtagKeyword;
+  }
+
 }
