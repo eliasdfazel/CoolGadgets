@@ -58,11 +58,17 @@ class ProductDataStructure {
 
   String productHashtags() {
 
+    String extraWord = 'with,and,or,a,';
+
     String hashtagKeyword = '#GeeksEmpire';
 
     productName().split('-').first.split(' ').forEach((element) {
 
-      hashtagKeyword += ' #$element';
+      if (!extraWord.contains(element)) {
+
+        hashtagKeyword += ' #$element';
+
+      }
 
     });
 

@@ -304,8 +304,8 @@ class CategoryItemState extends State<CategoryItem> {
 
                               Expanded(
                                 flex: 1,
-                                child: Padding(
-                                    padding: const EdgeInsets.only(bottom: 13),
+                                child: Align(
+                                    alignment: Alignment.bottomRight,
                                     child: SizedBox(
                                         height: 37,
                                         width: 37,
