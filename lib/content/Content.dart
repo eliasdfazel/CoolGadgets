@@ -98,11 +98,11 @@ class ContentState extends State<Content> {
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  associatesBranding(),
+                  coolGadgetsCommunity(),
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  coolGadgetsCommunity(),
+                  associatesBranding(),
 
                 ]
             )

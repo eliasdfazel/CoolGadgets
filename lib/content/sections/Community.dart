@@ -5,8 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 Widget coolGadgetsCommunity() {
 
   return Container(
-      constraints: const BoxConstraints(maxWidth: 1024),
-      padding: const EdgeInsets.only(top: 37, bottom: 37),
+      constraints: const BoxConstraints(maxHeight: 1024, maxWidth: 1024),
+      padding: const EdgeInsets.only(left: 37, right: 37),
       alignment: Alignment.center,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(17),
