@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cool_gadgets/cache/process/CacheProducts.dart';
 import 'package:cool_gadgets/cache/process/CacheTimes.dart';
-import 'package:cool_gadgets/content/Keywords.dart';
+import 'package:cool_gadgets/content/sections/categories/Keywords.dart';
 import 'package:cool_gadgets/data/Analytics.dart';
 import 'package:cool_gadgets/data/CategoriesDataStructure.dart';
 import 'package:cool_gadgets/data/ProductDataStructure.dart';

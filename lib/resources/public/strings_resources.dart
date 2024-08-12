@@ -11,6 +11,7 @@
 class StringsResources {
 
   static String titleGeeksEmpire = "Geeks Empire";
+  static String linkGeeksEmpire = "GeeksEmpire.co";
 
   static String titleCoolGadgets = "Cool Gadgets for";
   static String taglineCoolGadgets = "Cool Gadgets for Fitness, Gamers, Men, Women, Office, Home, Fun, Computer, Camping - Geeks Empire";
@@ -37,6 +38,7 @@ class StringsResources {
   static String twitterLink = "https://www.x.com/GeeksEmpire";
   static String threadsLink = "https://www.threads.net/@geeksempire.co";
   static String youtubeLink = "https://www.youtube.com/@GeeksEmpireCo/";
+  static String communityLink = "https://x.com/i/communities/1821302398222266820";
 
   /*
    * Start - Content

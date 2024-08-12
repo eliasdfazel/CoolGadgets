@@ -1,10 +1,11 @@
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cool_gadgets/content/Associates.dart';
-import 'package:cool_gadgets/content/Brands.dart';
-import 'package:cool_gadgets/content/Magazine.dart';
-import 'package:cool_gadgets/content/Offers.dart';
-import 'package:cool_gadgets/content/categories/Categories.dart';
+import 'package:cool_gadgets/content/sections/Associates.dart';
+import 'package:cool_gadgets/content/sections/Brands.dart';
+import 'package:cool_gadgets/content/sections/Community.dart';
+import 'package:cool_gadgets/content/sections/Magazine.dart';
+import 'package:cool_gadgets/content/sections/Offers.dart';
+import 'package:cool_gadgets/content/sections/categories/Categories.dart';
 import 'package:cool_gadgets/resources/public/colors_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -97,7 +98,11 @@ class ContentState extends State<Content> {
 
                   const Divider(height: 37, color: ColorsResources.transparent),
 
-                  associatesBranding()
+                  associatesBranding(),
+
+                  const Divider(height: 37, color: ColorsResources.transparent),
+
+                  coolGadgetsCommunity(),
 
                 ]
             )

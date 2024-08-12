@@ -139,7 +139,7 @@ class HeaderState extends State<Header> {
                                           splashFactory: InkRipple.splashFactory,
                                           onTap: () {
 
-                                            widget.dashboardState.prepareContent(widget.firebaseFirestore);
+                                            launchUrl(Uri.parse(StringsResources.communityLink), mode: LaunchMode.externalApplication);
 
                                           },
                                           child: Align(
