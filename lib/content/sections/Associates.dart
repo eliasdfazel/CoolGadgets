@@ -5,8 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 Widget associatesBranding() {
 
   return Container(
-    height: 31,
-    width: 177,
     padding: const EdgeInsets.only(top: 37, bottom: 37),
     alignment: Alignment.center,
     child: InkWell(
