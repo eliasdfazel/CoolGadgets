@@ -105,6 +105,8 @@ void setupContent() async {
   StringsResources.coolGadgetsForComputer;
   StringsResources.coolGadgetsForCamping;
 
+  StringsResources.joinCommunity;
+
   StringsResources.brandLUMSBURRY;
   StringsResources.brandLYKTRIX;
   StringsResources.brandMAGMO;
