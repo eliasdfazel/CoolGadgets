@@ -16,7 +16,7 @@ class StringsResources {
   static String titleCoolGadgets = "Cool Gadgets for";
   static String taglineCoolGadgets = "Cool Gadgets for Fitness, Gamers, Men, Women, Office, Home, Fun, Computer, Camping - Geeks Empire";
 
-  static String joinCommunity = "Join Cool Gadgets Community";
+  static String joinCommunity = "Join for\nCool Gadgets 🥶 \nHot Deals 🥵 ";
 
   static String titleBrands = "Brands";
 

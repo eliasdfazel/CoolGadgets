@@ -6,13 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 Widget coolGadgetsCommunity() {
 
   return Container(
-      decoration: BoxDecoration(
-        image: const DecorationImage(
-            image: AssetImage('images/cool_gadgets_community.jpg'),
-            fit: BoxFit.cover
-        ),
-      ),
-      constraints: const BoxConstraints(maxHeight: 1024, maxWidth: 1024),
+      constraints: const BoxConstraints(minWidth: 199, maxWidth: 1024),
       padding: const EdgeInsets.only(left: 37, right: 37),
       alignment: Alignment.center,
       child: ClipRRect(
@@ -23,22 +17,38 @@ Widget coolGadgetsCommunity() {
               launchUrl(Uri.parse(StringsResources.communityLink), mode: LaunchMode.externalApplication);
 
             },
-            child: Container(
-                constraints: const BoxConstraints(maxHeight: 1024, maxWidth: 1024),
-                padding: const EdgeInsets.only(left: 37, right: 37),
-                decoration: BoxDecoration(
-                  color: ColorsResources.premiumDark.withOpacity(0.73),
+            child: Stack(
+              children: [
+
+                Container(
+                  constraints: const BoxConstraints(minWidth: 199, maxWidth: 1024),
+                  alignment: Alignment.topCenter,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(17),
+                      child: Image.asset(
+                        'images/cool_gadgets_community.jpg',
+                        fit: BoxFit.cover,
+                      )
+                  )
                 ),
-                child: Align(
-                    alignment: Alignment.center,
+
+                Container(
+                  height: 333,
+                    width: 333,
+                    constraints: const BoxConstraints(minWidth: 199, maxWidth: 1024),
+                    color: ColorsResources.premiumDark.withOpacity(0.51),
+                  child: Center(
                     child: Text(
                         StringsResources.joinCommunity,
                         style: const TextStyle(
-                            fontSize: 37,
-                            color: ColorsResources.premiumLight
+                            color: ColorsResources.premiumLight,
+                            fontSize: 31
                         )
-                    )
+                    ),
+                  )
                 )
+
+              ]
             )
         )
       )
