@@ -33,8 +33,6 @@ Widget coolGadgetsCommunity() {
                 ),
 
                 Container(
-                  height: 333,
-                    width: 333,
                     constraints: const BoxConstraints(minWidth: 199, maxWidth: 1024),
                     color: ColorsResources.premiumDark.withOpacity(0.51),
                   child: Center(
